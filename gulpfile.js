@@ -19,12 +19,14 @@ gulp.task('css', function() {
   var whitespace = require('gulp-css-whitespace');
   var normalize = './node_modules/normalize.css/normalize.css';
   var es = require('event-stream');
+  var autoprefixer = require('gulp-autoprefixer');
 
   var vendorStream = gulp.src([normalize]);
 
   var cssStream = gulp.src(paths.css)
     .pipe(whitespace())
     .pipe(rework())
+    .pipe(autoprefixer('last 1 version', '> 5%', 'ie 8'))
     .pipe(concat('main.css'))
 
   return es.concat(vendorStream, cssStream)
@@ -37,7 +39,7 @@ gulp.task('js', function() {
   var concat = require('gulp-concat');
   var es = require('event-stream');
 
-  var vendorStream = gulp.src([ traceur.RUNTIME_PATH ]);
+  var vendorStream = gulp.src([ traceur.RUNTIME_PATH, 'app/js/polyfill.js' ]);
 
   var jsStream = gulp.src('app/js/main.js')
     .pipe(traceur({sourceMap: false}))
@@ -56,7 +58,7 @@ gulp.task('jade', function() {
       locals: LOCALS
     }))
     .pipe(dest());
-});//}}}
+});
 
 gulp.task('img', function() {
   var imagemin = require('gulp-imagemin');

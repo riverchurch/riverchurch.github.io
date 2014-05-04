@@ -24,6 +24,63 @@ section
   padding-right: 10%
 
 // general }}}
+// {{{ loading transition
+
+.is-loading
+  #hero-1,
+  .hero-0,
+  .hero-1,
+  .hero-2,
+  .hero-3,
+  .hero-4,
+  .staff,
+  #sunday-morning,
+  #connect-with-us
+    opacity: 0
+
+  .hero-0,
+  .hero-1,
+  .hero-2,
+  .hero-3,
+  .hero-4
+    transform: translateY(0.5em)
+
+  .staff
+    transform: translateX(5em)
+
+.hero-0
+  transition: all 1s ease
+.hero-1
+  transition: all 1s 0.8s ease
+.hero-2
+  transition: all 1s 1.0s ease
+.hero-3
+  transition: all 1s 1.2s ease
+.hero-4
+  transition: all 1s 1.4s ease
+
+#hero-1
+  transition: all 1s ease
+
+.staff:nth-child(0n+0)
+  transition: all 1s 1.6s ease
+.staff:nth-child(0n+1)
+  transition: all 1s 1.9s ease
+.staff:nth-child(0n+2)
+  transition: all 1s 2.2s ease
+.staff:nth-child(0n+3)
+  transition: all 1s 2.5s ease
+.staff:nth-child(0n+4)
+  transition: all 1s 2.8s ease
+.staff:nth-child(0n+5)
+  transition: all 1s 3.1s ease
+
+#sunday-morning,
+#connect-with-us
+  transition: all 1s 3.5s ease
+
+
+// loading transition }}}
 // {{{ hero
 #logo
   fill: #fff
@@ -99,7 +156,7 @@ section
 
 #sunday-morning
   // tall enough for the kids bubbles
-  height: 35.5em
+  height: 39.5em
   position: relative
   overflow: hidden
 

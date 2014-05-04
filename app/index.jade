@@ -8,9 +8,9 @@ html(lang='en')
     title River Church Charlotte
     meta(description='A church in Charlotte amazed by grace, declaring and demonstrating the love of God, the life of faith, and the hope of salvation.')
     link(rel='stylesheet' href='css/main.css')
-  body
+  body.is-loading
     section#hero
-      svg(version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="218.989px" height="107.995px" viewBox="0 0 218.989 107.995" enable-background="new 0 0 218.989 107.995" xml:space="preserve")
+      svg.hero-0(version="1.1" id="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="218.989px" height="107.995px" viewBox="0 0 218.989 107.995" enable-background="new 0 0 218.989 107.995" xml:space="preserve")
         g
           path(d="M116.203,15.917c-0.057-0.024-0.118-0.051-0.179-0.076c-1.348,0.445-4.49,1.733-7.98,3.285 c0.219,0.129,0.441,0.259,0.669,0.391c3.8-1.686,7.111-3.025,7.96-3.201c0.056-0.012,0.114-0.018,0.174-0.018 c0.841,0,1.979,1.148,2.241,2.686c0.519,3.043-0.58,4.498-1.072,4.98c-0.021,0.019-0.077,0.061-0.157,0.122 c0.062,0.019,0.124,0.036,0.182,0.052l-0.16,0.615c-0.201-0.052-0.422-0.121-0.662-0.205c-1.317,0.932-4.025,2.778-6.41,4.207 c0.306,0.061,0.614,0.121,0.925,0.184c3.084-1.89,6.495-4.293,6.726-4.518c0.568-0.555,1.827-2.205,1.257-5.545 c-0.254-1.486-1.246-2.771-2.311-3.119l-0.236,0.566C116.917,16.219,116.59,16.081,116.203,15.917z")
           path(d="M102.427,34.114c-1.705,1.162-3.605,2.457-4.303,2.846c0.277,0.056,0.589,0.115,0.934,0.178 c0.801-0.506,2.043-1.348,3.729-2.497c2.531-1.724,5.4-3.677,6.967-4.543c0.37-0.206,0.765-0.431,1.169-0.671 c-0.317-0.062-0.63-0.126-0.941-0.189c-0.182,0.104-0.36,0.207-0.536,0.303C107.853,30.42,104.971,32.383,102.427,34.114z")
@@ -21,23 +21,23 @@ html(lang='en')
           tspan(x="0" y="0" font-family="'Gotham-Light'" font-size="25.8176" letter-spacing="5") riverchurch
         text(transform="matrix(1 0 0 1 59.082 84.9458)" font-family="'Gotham-Light'" font-size="15.4226" letter-spacing="3") charlotte
 
-      h1 Welcome Home
+      h1.hero-1 Welcome Home
       ul.big-hitters
-        li
+        li.hero-2
           a(href='https://www.google.com/maps/preview?q=mallard+creek+rec+center&ie=UTF-8&ei=E6FlU-KxA8XmsASwwYDQDQ&ved=0CAgQ_AUoAQ')
             img(src='images/location.png')
             span Mallard Creek Rec Center
             span Worship at 10:00 am
             span.anchor View map
-        li
+        li.hero-3
           button.btn.btn--is-link
             img(src='images/give-online.png')
             span Give online
-        li
+        li.hero-4
           a(href='https://calendar.google.com')
             img(src='images/events.png')
             span Upcoming events
-      img#hero-1(style='opacity: 0' src='images/hero-1.png')
+      img#hero-1(src='images/hero-1.png')
 
     section#staff
       .staff
@@ -65,17 +65,17 @@ html(lang='en')
         a.btn(href='http://itunes') Podcast
         a.btn(href='http://www.deepwaterworship.com') DeepWaterWorship
 
-      ol.kids
-        li.kids__bubble.kids__bubble--is-guppies
+      div.kids
+        button(data-class='guppies').kids__bubble.kids__bubble--is-guppies
           .kids__title Guppies
           .kids__age Nursery
-        li.kids__bubble.kids__bubble--is-minnows
+        button(data-class='minnows').kids__bubble.kids__bubble--is-minnows
           .kids__title Minnows
           .kids__age Preschool
-        li.kids__bubble.kids__bubble--is-lilypad
+        button(data-class='lilypad').kids__bubble.kids__bubble--is-lilypad
           .kids__title The Lily Pad
           .kids__age 4 yrs&ndash;Kindergarten
-        li.kids__bubble.kids__bubble--is-splash
+        button(data-class='splash').kids__bubble.kids__bubble--is-splash
           .kids__title Splash
           .kids__age  1st&ndash;6th grade
 
