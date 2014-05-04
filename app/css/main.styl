@@ -1,4 +1,209 @@
+// {{{ general
+
+*
+  box-sizing: border-box
 
 body
+  background: #eee
+
+ol,
+ul
+  margin: 0
+  padding: 0
+
+.btn
+  background: transparent
+  border: 0
+
+.btn--is-link
+  margin: 0
+  padding: 0
+
+section
+  padding-left: 10%
+  padding-right: 10%
+
+// general }}}
+// {{{ hero
+#logo
+  fill: #fff
+  margin: 0 auto 10%
+
+#hero
+  background: #01386b
+  color: #fff
+  overflow: hidden
+  padding-top: 3em
+  padding-bottom: 3em
+  position: relative
+  text-align: center
+  z-index: 0
+
+  h1
+    font-size: 3em
+    margin: 0 auto
+
+  img
+    position: absolute
+    top: -10%
+    left: 0
+    right: 0
+    transition: opacity 1s ease-in
+    z-index: -1
+
+.big-hitters
+  list-style: none
+  margin: 20% 0 0
+  padding: 0
+
+  li
+    display: inline-block
+    text-align: left
+    vertical-align: top
+    width: 33.333%
+
+  span
+    display: block
+
+  a,
+  button
+    color: #fff
+    text-decoration: none
+
+// hero }}}
+// {{{ staff
+
+#staff
+  background: #FA2E59
+  padding-top: 1.5em
+  padding-bottom: 1.5em
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8)
+
+.staff
+  border: 4px solid rgba(0, 0, 0, 0.2)
+  border-radius: 50%
+  display: inline-block
+  margin: 0
+  overflow: hidden
+  height: 100%
+  margin-left: 2.5%
+  width: 18%
+  &:first-child
+    margin-left: 0
+  img
+    margin-left: -10%
+    width: 120%
+
+// staff }}}
+// {{{ sunday mornings
+
+#sunday-morning
+  // tall enough for the kids bubbles
+  height: 35.5em
+  position: relative
+  overflow: hidden
+
+.sunday-morning-links
+  padding-left: 6.5em
+  .btn
+    margin-right: 0.5em
+
+// sunday mornings }}}
+// {{{ series
+
+.series
+  padding-left: 6.5em
+  padding-right: 10em
+  position: relative
+
+.series__img,
+.series__img-shadow
+  //border: 1px solid #ccc
+  border-radius: 100%
+  overflow: hidden
+  position: absolute
+  left: 0
+  top: 0
+  height: 5em
+  width: 5em
+
+.series__img-shadow
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.8)
+  z-index: 1
+
+.series__img
+  img
+    margin-left: -40%
+    width: 200%
+
+.series__title
+  font-size: 2em
+
+
+// series }}}
+// {{{ kids
+
+.kids
+  position: absolute
+  top: 0
+  bottom: 0
+  right: 0
+  width: 10em
+  background: #222
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8)
+  color: #fff
+  list-style: none
+
+.kids__bubble
+  margin: 1.5em
   background: red
+  height: 7em
+  width: 7em
+  padding: 2.25em 0
+  border-radius: 50%
+  text-align: center
+
+// kids }}}
+// {{{ Connect with us
+
+#connect-with-us
+  background: #ddd
+  border-top: 3px solid #ccc
+  padding-top: 3em
+  padding-bottom: 3em
+  label,
+  input,
+  textarea
+    display: inline-block
+    vertical-align: top
+
+  label
+    padding: 0.666em 0.666em 0.666em 0
+    width: 20%
+
+  input,
+  textarea
+    border: 0
+    border-bottom: 2px solid #76BCAD
+    padding: 0.3333em
+    margin-bottom: 0.666em
+    width: 80%
+    transition: all 0.3s ease-in
+    &:focus
+      outline: 0
+      border-bottom-color: #4A8F80
+  button
+    background: #FF703F
+    border: 0
+    border-bottom: 2px solid #E6511E
+    color: #fff
+    font-size: 1.333em
+    padding: 0.5em 1.5em
+    margin-left: 20%
+    &:hover,
+    &:focus
+      background: #E6511E
+      border-bottom-color: #AE3911
+
+// Connect with us }}}
 

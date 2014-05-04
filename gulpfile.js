@@ -11,6 +11,7 @@ var paths = {
   css: 'app/css/main.styl',
   js: 'app/js/main.js',
   jade: 'app/*.jade',
+  img: 'app/images/*'
 };
 
 gulp.task('css', function() {
@@ -55,6 +56,19 @@ gulp.task('jade', function() {
       locals: LOCALS
     }))
     .pipe(dest());
+});//}}}
+
+gulp.task('img', function() {
+  var imagemin = require('gulp-imagemin');
+  var pngcrush = require('imagemin-pngcrush');
+
+  return gulp.src(paths.img)
+    .pipe(imagemin({
+      progressive: true,
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngcrush()]
+    }))
+    .pipe(dest('images/'));
 });
 
 gulp.task('open', function() {
@@ -67,7 +81,8 @@ gulp.task('watch', function() {
   gulp.watch(paths.css, ['css']);
   gulp.watch(paths.jade, ['jade']);
   gulp.watch(paths.js, ['js']);
+  gulp.watch(paths.img, ['img']);
 });
 
-gulp.task('default', ['css', 'js', 'jade', 'watch']);
+gulp.task('default', ['css', 'js', 'jade', 'img', 'watch']);
 
