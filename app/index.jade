@@ -66,18 +66,17 @@ html(lang='en')
         a.btn(href='http://www.deepwaterworship.com') DeepWaterWorship
 
       div.kids
-        button(data-class='guppies').kids__bubble.kids__bubble--is-guppies
-          .kids__title Guppies
-          .kids__age Nursery
-        button(data-class='minnows').kids__bubble.kids__bubble--is-minnows
-          .kids__title Minnows
-          .kids__age Preschool
-        button(data-class='lilypad').kids__bubble.kids__bubble--is-lilypad
-          .kids__title The Lily Pad
-          .kids__age 4 yrs&ndash;Kindergarten
-        button(data-class='splash').kids__bubble.kids__bubble--is-splash
-          .kids__title Splash
-          .kids__age  1st&ndash;6th grade
+        - each c in kids
+          button(data-class=c.name.toLowerCase(), class='kids__bubble kids__bubble--is-#{c.name.toLowerCase()}')
+            .kids__title= c.name
+            .kids__age= c.age
+
+        - each c in kids
+          section.kid-modal(id=c.name.toLowerCase())
+            h1= c.name
+            h2= c.age
+            - each s in c.content
+              p= s
 
     section#connect-with-us
       h1 Connect With Us

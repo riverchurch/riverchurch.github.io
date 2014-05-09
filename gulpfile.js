@@ -51,7 +51,7 @@ gulp.task('js', function() {
 
 gulp.task('jade', function() {
   var jade = require('gulp-jade');
-  var LOCALS = {};
+  var LOCALS = require('./content');
 
   return gulp.src(paths.jade)
     .pipe(jade({

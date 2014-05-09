@@ -36,7 +36,8 @@ var off = (element, event, fn) => {
 
 var delegateTo = function delegateTo(selector, fn) {
   return function(e) {
-    if (isChild(e.target, 'button', this)) fn.apply(this, arguments);
+    var ctx;
+    if ((ctx = isChild(e.target, 'button', this))) fn.apply(ctx, arguments);
   };
 };
 
@@ -45,7 +46,7 @@ var isChild = (node, parentSelector, stopAtNode=document.body) => {
     if (node === stopAtNode) return false;
     node = node.parentNode;
   }
-  return true;
+  return node;
 }
 
 // end jQuery Lite
@@ -57,7 +58,10 @@ if (img.complete) fadeIn(img);
 else img.onload = () => fadeIn(img);
 
 on('.kids', 'click', delegateTo('button', function(e) {
-  console.log('clicked a kid', this)
+  var ACTIVE_CLASS = 'kid-modal--is-active';
+  var active = $$('.kid-modal--is-active');
+  if (active) active.classList.remove(ACTIVE_CLASS);
+  $$(`#${this.getAttribute('data-class')}`).classList.add(ACTIVE_CLASS);
 }));
 
 module.exports = { img };
