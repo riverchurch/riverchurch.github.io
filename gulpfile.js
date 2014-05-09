@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var shell = require('gulp-shell');
 var concat = require('gulp-concat');
 var join = require('path').join;
 var OUTPUT = 'dist';
@@ -61,15 +62,17 @@ gulp.task('jade', function() {
 });
 
 gulp.task('img', function() {
-  var imagemin = require('gulp-imagemin');
-  var pngcrush = require('imagemin-pngcrush');
+  //var imagemin = require('gulp-imagemin');
+  //var pngcrush = require('imagemin-pngcrush');
 
   return gulp.src(paths.img)
+    /*
     .pipe(imagemin({
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
       use: [pngcrush()]
     }))
+    */
     .pipe(dest('images/'));
 });
 
@@ -86,5 +89,17 @@ gulp.task('watch', function() {
   gulp.watch(paths.img, ['img']);
 });
 
-gulp.task('default', ['css', 'js', 'jade', 'img', 'watch']);
+gulp.task('gh-pages', ['build'], shell.task([
+  'git checkout -b tmp-gh-pages',
+  'git add ./dist -f',
+  'git commit -m "Build" --no-verify',
+  'git push origin :gh-pages &> /dev/null',
+  'git subtree push --squash --prefix=dist origin gh-pages',
+  'git checkout master',
+  'git branch -D tmp-gh-pages',
+]));
+
+gulp.task('build', ['css', 'js', 'jade', 'img']);
+
+gulp.task('default', ['build', 'watch']);
 
