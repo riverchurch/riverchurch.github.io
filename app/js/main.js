@@ -57,6 +57,13 @@ var img = $$('#hero-1');
 if (img.complete) fadeIn(img);
 else img.onload = () => fadeIn(img);
 
+/*
+on('a[href^="#"]', 'click', function(e) {
+  e.preventDefault();
+  $$(this.getAttribute('href')).scrollIntoView(null, {behavior: 'smooth'});
+});
+*/
+
 on('.kids', 'click', delegateTo('button', function(e) {
   var ACTIVE_CLASS = 'kid-modal--is-active';
   var active = $$('.kid-modal--is-active');

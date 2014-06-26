@@ -40,7 +40,11 @@ gulp.task('js', function() {
   var concat = require('gulp-concat');
   var es = require('event-stream');
 
-  var vendorStream = gulp.src([ traceur.RUNTIME_PATH, 'app/js/polyfill.js' ]);
+  var vendorStream = gulp.src([
+    traceur.RUNTIME_PATH,
+    'app/js/polyfill.js',
+    'app/bower_components/smoothscroll/dist/smoothscroll.js',
+  ]);
 
   var jsStream = gulp.src('app/js/main.js')
     .pipe(traceur({sourceMap: false}))

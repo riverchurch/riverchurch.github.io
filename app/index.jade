@@ -7,6 +7,8 @@ html(lang='en')
 
     title River Church Charlotte
     meta(description='A church in Charlotte amazed by grace, declaring and demonstrating the love of God, the life of faith, and the hope of salvation.')
+    link(rel='stylesheet' href='http://fonts.googleapis.com/css?family=Quicksand:300,700')
+    link(rel='stylesheet' href='http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css')
     link(rel='stylesheet' href='css/main.css')
   body.is-loading
     section#hero
@@ -25,18 +27,19 @@ html(lang='en')
       ul.big-hitters
         li.hero-2
           a(href='https://www.google.com/maps/preview?q=mallard+creek+rec+center&ie=UTF-8&ei=E6FlU-KxA8XmsASwwYDQDQ&ved=0CAgQ_AUoAQ')
-            img(src='images/location.png')
-            span Mallard Creek Rec Center
+            i.icon.ion-map
+            span.bh__title Mallard Creek Rec Center
             span Worship at 10:00 am
-            span.anchor View map
         li.hero-3
-          button.btn.btn--is-link
-            img(src='images/give-online.png')
-            span Give online
+          a(href='https://riverchurchcharlotte.elexiopulse.com/default.aspx#Giving').btn.btn--is-link
+            i.icon.ion-cash
+            span.bh__title Give online
+            span Requires an Elexio account
         li.hero-4
           a(href='https://calendar.google.com')
-            img(src='images/events.png')
-            span Upcoming events
+            i.icon.ion-calendar
+            span.bh__title Upcoming events
+      a(href='#staff').read-more.ion-chevron-down
       img#hero-1(src='images/hero-1.png')
 
     section#staff
@@ -48,8 +51,6 @@ html(lang='en')
         img(src='images/staff-grayson-berkowitz.jpg')
       .staff
         img(src='images/staff-tori-berkowitz.jpg')
-      .staff
-        img(src='images/staff-brian-early.jpg')
 
     section#sunday-morning
       h1 Join us this Sunday
@@ -68,8 +69,7 @@ html(lang='en')
       div.kids
         - each c in kids
           button(data-class=c.name.toLowerCase(), class='kids__bubble kids__bubble--is-#{c.name.toLowerCase()}')
-            .kids__title= c.name
-            .kids__age= c.age
+            img(src="images/kids-#{c.name.toLowerCase().replace(' ', '')}.svg" alt='#{c.name}. #{c.age}')
 
         - each c in kids
           section.kid-modal(id=c.name.toLowerCase())
