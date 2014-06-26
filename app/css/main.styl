@@ -158,25 +158,54 @@ section
 // {{{ staff
 
 #staff
-  background: #FA2E59
-  padding-top: 1.5em
-  padding-bottom: 1.5em
+  //background: #FA2E59
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8)
+  padding: 0
+  overflow: hidden
 
 .staff
-  border: 4px solid rgba(0, 0, 0, 0.2)
-  border-radius: 50%
   display: inline-block
   margin: 0
+  min-height: 160px
+  padding: 15% 0.41666em 0
+  position: relative
   overflow: hidden
-  height: 100%
-  margin-left: 2.5%
-  width: 23%
-  &:first-child
-    margin-left: 0
+  vertical-align: top
+  width: 25%
+  > *
+    color: #fff
+    display: block
+    position: relative
+    z-index: 5
+
+  span[hidden]
+    display: none
+
+  span
+    font-weight: 700
+
+  a
+    font-weight: 300
+    text-decoration: none
+
   img
+    position: absolute
     margin-left: -10%
+    top: 0
     width: 120%
+    z-index: 0
+    filter: blur(2px)
+
+  &:after
+    content: ' '
+    position: absolute
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    z-index: 1
+    opacity: 0.7
+    background: #334635
 
 // staff }}}
 // {{{ sunday mornings
