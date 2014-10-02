@@ -2,7 +2,7 @@ module.exports = {
   kids: [
     {
       name: 'Guppies',
-      age: 'Nursery',
+      age: 'birth - 24 months',
       content: [
         'This is some body copy.',
         'This is some body copy.',
@@ -11,7 +11,7 @@ module.exports = {
     },
     {
       name: 'Minnows',
-      age: 'Preschool',
+      age: '2 - 3 years',
       content: [
         'This is some body copy.',
         'This is some body copy.',
@@ -29,7 +29,7 @@ module.exports = {
     },
     {
       name: 'Splash',
-      age: '1st - 6th',
+      age: '1st - 6th grade',
       content: [
         'This is some body copy.',
         'This is some body copy.',

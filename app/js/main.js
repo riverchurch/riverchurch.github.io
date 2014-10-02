@@ -1,6 +1,6 @@
 
 // jQuery Lite
-var $ = (selector, ctx=document) => [...ctx.querySelectorAll(selector)];
+var $ = (selector, ctx=document) => Array.prototype.slice.call(ctx.querySelectorAll(selector), 0);
 var $$ = (selector, ctx=document) => ctx.querySelector(selector);
 var UUID = () => 'uuid-' + Math.floor(Math.random() ^ Math.random() * 1000);
 var events = {};

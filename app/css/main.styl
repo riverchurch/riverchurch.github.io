@@ -4,8 +4,8 @@
   box-sizing: border-box
 
 body
-  background: #eee
-  font-family: 'Quicksand', sans-serif;
+  background: #f4f4f4
+  font-family: 'Raleway', 'Quicksand', sans-serif;
 
 ol,
 ul
@@ -20,9 +20,13 @@ ul
   margin: 0
   padding: 0
 
-section
-  padding-left: 10%
-  padding-right: 10%
+#sunday-morning,
+#kids,
+#connect-with-us
+  padding: 1.333em
+
+h2
+  margin-top: 0
 
 // general }}}
 // {{{ loading transition
@@ -80,7 +84,6 @@ section
 #sunday-morning,
 #connect-with-us
   transition: all 1s 3.5s ease
-
 */
 
 // loading transition }}}
@@ -92,7 +95,7 @@ section
 #hero
   background: #01386b
   color: #fff
-  height: 100vh
+  min-height: 100vh
   overflow: hidden
   padding: 3em 5%
   position: relative
@@ -100,7 +103,7 @@ section
   z-index: 0
 
   h1
-    font-size: 5em
+    font-size: 3em
     margin: 0 auto
     opacity: 0.95
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.333)
@@ -108,32 +111,32 @@ section
 
   img
     position: absolute
-    top: -10%
+    top: 0
     left: 0
     right: 0
+    bottom: 0
+    min-width: 100%
+    min-height: 100%
     transition: opacity 1s ease-in
     z-index: -1
 
   .read-more
     color: #fff
-    font-size: 2.5em
+    font-size: 1.25em
     position: absolute
     left: 0
     right: 0
     text-align: center
     bottom: 0.333em
 
-
 .big-hitters
   list-style: none
   margin: 20% 0 0
   padding: 0
-
   li
-    display: inline-block
+    display: block
     text-align: left
-    vertical-align: top
-    width: 33.333%
+    padding: 0.5em 0
 
   .icon
     font-size: 2.25em
@@ -153,13 +156,117 @@ section
     color: #fff
     text-decoration: none
 
+@media screen and (min-width: 600px)
+  .big-hitters
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    background: rgba(0, 0, 0, 0.7)
+    display: flex
+    justify-content: space-between
+    padding: 0.666em 0.666em 1.5em
+
+    li
+      flex: 1
+      text-align: center
+      vertical-align: top
+
+    a
+      display: inline-block
+      text-align: left
+
+    span
+      color: #137771
 
 // hero }}}
+// {{{ sunday mornings
+
+.quote
+  color: #202020
+  font-family: serif
+  font-size: 1.333em
+  font-weight: bold
+  font-style: italic
+  border-left: 4px solid #999
+  padding: 0 0 0 0.5em
+  &:before,
+  &:after
+    font-size: 1.5em
+    line-height: 0.666
+    vertical-align: bottom
+
+.section
+  padding: 0.6666em 0
+  border-bottom: 1px solid #999
+  &:last-of-type
+    border-bottom: 0 none
+
+  a
+    color: #002759
+    text-decoration: none
+
+.section__name,
+.kids__name
+  color: #555
+  display: block
+  font-size: 0.916666em
+  font-family: serif
+  font-style: italic
+  font-weight: bold
+  margin-bottom: 0.333em
+
+.section__name:after
+  content: ':'
+
+@media screen and (min-width: 600px)
+  .some-may-call-this-a-belt
+    color: #fff
+    max-width: 1400px
+    padding: 4%
+
+    a
+      color: #ccc
+
+  .section__name,
+  .kids__name
+    color: #eee
+
+  .quote
+    color: #fff
+    border-left-color: #ddd
+    font-size: 2em
+
+  .section
+    border-bottom-color: #eee
+
+  #sunday-morning,
+  #kids
+    background-size: cover
+    display: inline-block
+    padding: 2em 5%
+    vertical-align: top
+
+  .some-may-call-this-a-belt
+    display: flex
+  #sunday-morning
+    flex: 1 2 auto
+  #kids
+    flex: 1 1 auto
+
+  #sunday-morning
+    background: url(../images/sunday.png)
+    margin-right: 4%
+    width: 60%
+  #kids
+    background: url(../images/kids.png)
+    width: 36%
+
+// sunday mornings }}}
 // {{{ staff
 
 #staff
   //background: #FA2E59
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8)
   padding: 0
   overflow: hidden
 
@@ -171,7 +278,6 @@ section
   position: relative
   overflow: hidden
   vertical-align: top
-  width: 25%
   > *
     color: #fff
     display: block
@@ -194,109 +300,30 @@ section
     top: 0
     width: 120%
     z-index: 0
-    filter: blur(2px)
 
-  &:after
-    content: ' '
-    position: absolute
-    top: 0
-    left: 0
-    bottom: 0
-    right: 0
-    z-index: 1
-    opacity: 0.7
-    background: #334635
+@media screen and (max-width: 600px)
+  .staff
+    padding-top: 30%
+    width: 50%
+
+@media screen and (min-width: 600px)
+  .staff
+    width: 25%
 
 // staff }}}
-// {{{ sunday mornings
-
-#sunday-morning
-  // tall enough for the kids bubbles
-  height: 39.5em
-  position: relative
-  overflow: hidden
-
-.sunday-morning-links
-  padding-left: 6.5em
-  .btn
-    margin-right: 0.5em
-
-// sunday mornings }}}
-// {{{ series
-
-.series
-  padding-left: 6.5em
-  padding-right: 10em
-  position: relative
-
-.series__img,
-.series__img-shadow
-  //border: 1px solid #ccc
-  border-radius: 100%
-  overflow: hidden
-  position: absolute
-  left: 0
-  top: 0
-  height: 5em
-  width: 5em
-
-.series__img-shadow
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.8)
-  z-index: 1
-
-.series__img
-  img
-    margin-left: -40%
-    width: 200%
-
-.series__title
-  font-size: 2em
-
-
-// series }}}
-// {{{ kids
-
-.kids
-  position: absolute
-  top: 0
-  bottom: 0
-  right: 0
-  width: 10em
-  background: #222
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8)
-  color: #fff
-  list-style: none
-
-.kids__bubble
-  background: #222
-  border: 0
-  border-radius: 50%
-  margin: 1.5em
-  padding: 0
-  height: 7em
-  width: 7em
-
-  img
-    max-height: 100%
-    max-width: 100%
-
-// kids }}}
 // {{{ Connect with us
 
 #connect-with-us
-  background: #ddd
-  border-top: 3px solid #ccc
   padding-top: 3em
   padding-bottom: 3em
   label,
   input,
   textarea
-    display: inline-block
+    display: block
     vertical-align: top
 
   label
     padding: 0.666em 0.666em 0.666em 0
-    width: 20%
 
   input,
   textarea
@@ -304,7 +331,7 @@ section
     border-bottom: 2px solid #76BCAD
     padding: 0.3333em
     margin-bottom: 0.666em
-    width: 80%
+    width: 100%
     transition: all 0.3s ease-in
     &:focus
       outline: 0
@@ -316,25 +343,10 @@ section
     color: #fff
     font-size: 1.333em
     padding: 0.5em 1.5em
-    margin-left: 20%
     &:hover,
     &:focus
       background: #E6511E
       border-bottom-color: #AE3911
 
 // Connect with us }}}
-
-.kid-modal
-  position: fixed
-  top: 2.5%
-  bottom: 2.5%
-  left: 100%
-  width: 95%
-  z-index: 5
-  background: #444
-  transition: all 1s ease
-
-.kid-modal--is-active
-  left: 2.5%
-
 

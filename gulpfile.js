@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var shell = require('gulp-shell');
 var concat = require('gulp-concat');
 var join = require('path').join;
+
 var OUTPUT = 'dist';
 var dest = function(path) {
   var p = path ? join(OUTPUT, path) : OUTPUT;
@@ -36,6 +37,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('js', function() {
+  var sourcemaps = require('gulp-sourcemaps');
   var traceur = require('gulp-traceur');
   var concat = require('gulp-concat');
   var es = require('event-stream');
@@ -47,10 +49,12 @@ gulp.task('js', function() {
   ]);
 
   var jsStream = gulp.src('app/js/main.js')
-    .pipe(traceur({sourceMap: false}))
+    .pipe(sourcemaps.init())
+    .pipe(traceur())
 
   return es.concat(vendorStream, jsStream)
     .pipe(concat('main.js'))
+    .pipe(sourcemaps.write())
     .pipe(dest('js/'));
 });
 
