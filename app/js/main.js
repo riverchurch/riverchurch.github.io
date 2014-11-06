@@ -51,25 +51,86 @@ var isChild = (node, parentSelector, stopAtNode=document.body) => {
 
 // end jQuery Lite
 
-var fadeIn = () => document.body.classList.remove('is-loading');
-var img = $$('#hero-1');
+(function() {
+  var called = false;
 
-if (img.complete) fadeIn(img);
-else img.onload = () => fadeIn(img);
+  var onReady = function() {
+    if (called) return;
+    called = true;
 
-/*
-on('a[href^="#"]', 'click', function(e) {
-  e.preventDefault();
-  $$(this.getAttribute('href')).scrollIntoView(null, {behavior: 'smooth'});
-});
-*/
+    $('form input, textarea').forEach(function(el) {
+      if (el.value)
+        el.parentNode.classList.add('has-content');
+    });
 
-on('.kids', 'click', delegateTo('button', function(e) {
-  var ACTIVE_CLASS = 'kid-modal--is-active';
-  var active = $$('.kid-modal--is-active');
-  if (active) active.classList.remove(ACTIVE_CLASS);
-  $$(`#${this.getAttribute('data-class')}`).classList.add(ACTIVE_CLASS);
-}));
+    on('form', 'keydown', function(e) {
+      var action = e.target.value ? 'add' : 'remove';
+      e.target.parentNode.classList[action]('has-content');
+    });
 
-module.exports = { img };
+    on('form', 'submit', function(e) {
+      e.preventDefault();
+      var data = serialize(this);
+      var id = last(this.action.split('/'));
+      data.endpoint = '' + id;
+
+      console.log('TODO: post form data to: %s', id, data);
+      // post('http://skookie.aws.af.cm/contact', data).then(successHandler, failureHandler);
+
+      var form = this;
+
+      function successHandler(data) {
+        var node = document.createElement('div');
+        node.style.height = form.clientHeight + 'px';
+        node.className = 'form__success';
+        node.innerHTML = 'Thanks! We&rsquo;ll be in touch!';
+        form.parentNode.replaceChild(node, form);
+      }
+
+      function failureHandler(data) {
+        console.log('TODO: failureHandler', data);
+      }
+
+    });
+
+    document.body.classList.add('is-ready');
+  };
+
+  document.addEventListener('DOMContentLoaded', onReady, false);
+  window.addEventListener('onload', onReady, false);
+  setTimeout(onReady, 50);
+
+  function last(a) {
+    return a[a.length - 1];
+  };
+
+  function getValue(element) {
+    var type = element.type;
+
+    if (type === 'checkbox')
+      return element.checked;
+
+    if (type === 'radio')
+      return element.checked;
+
+    return element.value || '';
+  }
+
+  function serialize(form) {
+    return $$('input, textarea').reduce(function(o, el) {
+      var name = el.name;
+      var value = getValue(el);
+      if (typeof o[name] !== 'undefined') {
+        if (Array.isArray(o[name]))
+          o[name] = [o[name]];
+        o[name].push(value);
+      }
+      else {
+        o[name] = value;
+      }
+      return o;
+    }, {});
+  }
+
+})();
 

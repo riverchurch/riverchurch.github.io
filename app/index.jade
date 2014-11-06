@@ -95,24 +95,27 @@ html(lang='en')
       h1 Connect With Us
       form
         .fieldset
-          label Name
-          input
+          label(for='name') Name
+          input(name='name' id='name' placeholder='Name')
         .fieldset
-          label Email
-          input
+          label(for='email') Email
+          input(name='email' id='email' placeholder='Email')
         .fieldset
-          label Phone Number
-          input
+          label(for='phone') Phone Number
+          input(name='phone' id='phone' placeholder='Phone Number')
         .fieldset
-          label Life Status
-          input
+          label(for='life-status') Life Status
+          input(name='life-status' id='life-status' placeholder='Life Status')
         .fieldset
-          label Prayer Requests?
-          textarea
+          label(for='prayer') Prayer Requests?
+          textarea(rows=5 name='prayer' id='prayer' placeholder='Prayer Requests?')
         .fieldset
-          label How can we best server you?
-          textarea
+          label(for='whatcha-need') How can we best serve you?
+          textarea(rows=5 name='whatcha-need' id='whatcha-need' placeholder='How can we best serve you?')
         button(type='submit') Send
+
+    footer#footer
+      p Copyright &copy; 2014 River Church Charlotte
 
     script.
       window.module = {};

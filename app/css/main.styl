@@ -250,7 +250,7 @@ h2
   .some-may-call-this-a-belt
     display: flex
   #sunday-morning
-    flex: 1 2 auto
+    flex: 2 2 auto
   #kids
     flex: 1 1 auto
 
@@ -313,40 +313,79 @@ h2
 // staff }}}
 // {{{ Connect with us
 
+::-webkit-input-placeholder
+  color: #aaa
+  font-style: italic
+
+\:-moz-placeholder
+  color: #aaa
+  font-style: italic
+
+::-moz-placeholder
+  color: #aaa
+  font-style: italic
+
+\:-ms-input-placeholder
+  color: #aaa
+  font-style: italic
+
 #connect-with-us
   padding-top: 3em
   padding-bottom: 3em
+
   label,
   input,
   textarea
     display: block
     vertical-align: top
 
+  .fieldset
+    padding: 0 0
+    position: relative
+
   label
-    padding: 0.666em 0.666em 0.666em 0
+    font-size: 0.666em
+    font-weight: 300
+    position: absolute
+    top: 2.23em
+    left: 1rem
+    opacity: 0
+    top: 1.5em
+    transition: 0.333s ease top, 0.333s ease opacity
+
+  .has-content
+    label
+      opacity: 1
+      top: 0.4rem
 
   input,
   textarea
+    background: transparent
     border: 0
-    border-bottom: 2px solid #76BCAD
-    padding: 0.3333em
-    margin-bottom: 0.666em
+    border-bottom: 2px solid #777
+    padding: 1.333em 1em 0.5em 1em
     width: 100%
     transition: all 0.3s ease-in
     &:focus
+      background: #fafafa
       outline: 0
-      border-bottom-color: #4A8F80
+      border-bottom-color: #333
+
   button
-    background: #FF703F
+    background: #fafafa
     border: 0
-    border-bottom: 2px solid #E6511E
-    color: #fff
+    border-top: 1px solid #e9e9e9
+    border-bottom: 2px solid #444
+    color: #000
+    margin-top: 1.333em
     font-size: 1.333em
     padding: 0.5em 1.5em
+    /*
     &:hover,
     &:focus
       background: #E6511E
       border-bottom-color: #AE3911
+    */
 
 // Connect with us }}}
 
