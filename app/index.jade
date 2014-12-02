@@ -70,26 +70,13 @@ html(lang='en')
             //- img(src="images/kids-#{c.name.toLowerCase().replace(' ', '')}.svg" alt='#{c.name}. #{c.age}')
 
     section#staff
-      .staff
-        span Derek Turner
-        a(href='https://twitter.com/PastorDerekT') @PastorDerekT
-        span(hidden) Follower of Jesus, In love with @sarahjoyturner, Father to @caarolineturner & Kate, Owner of Cosmo, Pastor @rivercharlotte Amazed by Grace
-        img(src='images/bio-derek.png')
-      .staff
-        span Sarah Turner
-        a(href='https://twitter.com/sarahjoyturner') @sarahjoyturner
-        span(hidden) A simple girl from TN married to a pastor. Trying to make a difference in the world, starting w my husband and 2 sweet girls.
-        img(src='images/bio-sarah.png')
-      .staff
-        span Grayson Berkowitz
-        a(href='https://twitter.com/berzerkowitz') @berzerkowitz
-        span(hidden) Husband to @toriberkowitz, Father to Aliza &amp; Ari, Worship Pastor @RiverCharlotte @DeepH2OWorship
-        img(src='images/bio-gray.png')
-      .staff
-        span Tori Berkowitz
-        a(href='https://twitter.com/toriberkowitz') @toriberkowitz
-        span(hidden) Lover of God. Wife to @berzerkowitz. Mommy to Aliza Day and Ari Brave. Singer of songs. Pastor to Children.
-        img(src='images/bio-tori.png')
+      - each s in staff
+        .staff
+          div.staff__name= s.name
+          a(href="https://twitter.com/#{s.twitter}") #{"@" + s.name}
+          div.staff__title= s.title
+          p.staff__bio= s.bio
+          img(src=s.image)
 
     section#connect-with-us
       h1 Connect With Us
