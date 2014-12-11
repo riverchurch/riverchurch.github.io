@@ -47,7 +47,7 @@ var isChild = (node, parentSelector, stopAtNode=document.body) => {
     node = node.parentNode;
   }
   return node;
-}
+};
 
 // end jQuery Lite
 

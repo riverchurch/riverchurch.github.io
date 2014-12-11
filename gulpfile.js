@@ -38,23 +38,23 @@ gulp.task('css', function() {
 
 gulp.task('js', function() {
   var sourcemaps = require('gulp-sourcemaps');
-  var traceur = require('gulp-traceur');
+  var es6 = require('gulp-6to5');
   var concat = require('gulp-concat');
   var es = require('event-stream');
 
+
   var vendorStream = gulp.src([
-    traceur.RUNTIME_PATH,
     'app/js/polyfill.js',
     'app/bower_components/smoothscroll/dist/smoothscroll.js',
   ]);
 
   var jsStream = gulp.src('app/js/main.js')
     .pipe(sourcemaps.init())
-    .pipe(traceur())
+    .pipe(es6())
+    .pipe(sourcemaps.write());
 
   return es.concat(vendorStream, jsStream)
     .pipe(concat('main.js'))
-    .pipe(sourcemaps.write())
     .pipe(dest('js/'));
 });
 
