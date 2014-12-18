@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "start": "node index.js"
   },
   "author": "",
   "license": "BSD-2-Clause",
@@ -27,5 +28,12 @@
     "imagemin-pngcrush": "~1.0.0",
     "normalize.css": "~3.0.1",
     "pngcrush": "0.1.0"
+  },
+  "dependencies": {
+    "good": "^5.0.0",
+    "good-console": "^3.0.2",
+    "hapi": "^8.0.0",
+    "hapi-react-views": "^1.2.3",
+    "react": "^0.12.1"
   }
 }
