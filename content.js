@@ -62,7 +62,6 @@ module.exports = {
       bio: 'Born in Ft Worth TX, moved to NC. Married Grayson, has two beautiful kids. Tori leads with strength and boldness and is multitalented. She has a heart for people to deeply know their Heavenly Father.',
       image: 'images/bio-tori.png',
     },
-
   ]
 };
 
