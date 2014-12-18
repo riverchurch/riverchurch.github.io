@@ -1,5 +1,6 @@
 var Hapi = require('hapi');
 var Good = require('good');
+var Joi = require('joi');
 var path = require('path');
 var PORT = 8000;
 
@@ -28,6 +29,27 @@ server.route({
     var props = require('./content');
     reply.view('index', props)
       .header('Content-Type', 'text/html;charset=UTF-8');
+  }
+});
+
+server.route({
+  method: 'POST',
+  path: '/contact',
+  config: {
+    validate: {
+      options: {abortEarly: false},
+      payload: {
+        name: Joi.string().min(3).max(10).label('Name'),
+        email: Joi.string().email().label('Email'),
+        phone: Joi.string().min(7).max(12).label('Phone'),
+        'life-status': Joi.any().allow(['Single', 'Married']).label('Life Status'),
+        prayer: Joi.string().optional().label('Prayer'),
+        'whatcha-need': Joi.string().optional().label('How can we best serve you?'),
+      }
+    }
+  },
+  handler: function(request, reply) {
+    reply('Thank you.');
   }
 });
 
