@@ -30,6 +30,7 @@
     "pngcrush": "0.1.0"
   },
   "dependencies": {
+    "expose-loader": "^0.6.0",
     "good": "^5.0.0",
     "good-console": "^3.0.2",
     "hapi": "^8.0.0",
@@ -37,6 +38,9 @@
     "hapi-mailer": "^2.0.0",
     "hapi-react-views": "^1.2.3",
     "joi": "^5.0.2",
-    "react": "^0.12.1"
+    "jsx-loader": "^0.12.2",
+    "rcss": "git://github.com/chenglou/RCSS.git#37f84f384a089a60c1e253b961045367caa1a963",
+    "react": "^0.12.1",
+    "webpack": "^1.4.15"
   }
 }

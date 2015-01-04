@@ -2,8 +2,18 @@ var React = require('react');
 var Kid = require('./kid.jsx');
 var Staff = require('./staff.jsx');
 var ContactForm = require('./contact.jsx');
+var CONTENT = require('../content');
+var layout = require('../styles/layout');
+var header = require('../styles/header');
+var section = require('../styles/section');
+var footer = require('../styles/footer');
 
 var Root = React.createClass({
+
+  getDefaultProps() {
+    return CONTENT;
+  },
+
   render() {
     var {kids, staff} = this.props;
 
@@ -21,36 +31,36 @@ var Root = React.createClass({
           <link rel="stylesheet" href="css/main.css" />
         </head>
         <body>
-          <section id="hero">
+          <section id="hero" className={header.hero.className}>
             {/* include logo.svg.jade */}
-            <h1 className="hero-1">welcome home</h1>
-            <ul className="big-hitters">
-              <li className="hero-2">
-                <a href="https://www.google.com/maps/preview?q=mallard+creek+rec+center&ie=utf-8&ei=e6flu-kxa8xmsaswwydqdq&ved=0cagq_auoaq">
-                  <i className="icon ion-map"></i>
-                  <span className="bh__title">mallard creek rec center</span>
-                  <span>worship at 10:00 am</span>
+            <h1 className={header.heroTitle.className}>welcome home</h1>
+            <ul className={header.bigHitterList.className}>
+              <li className={header.bigHitterItem.className}>
+                <a className={header.bigHitterButton.className} href="https://www.google.com/maps/preview?q=mallard+creek+rec+center&ie=utf-8&ei=e6flu-kxa8xmsaswwydqdq&ved=0cagq_auoaq">
+                  <i className={header.bigHitterIcon.className + ' ion-map'}></i>
+                  <span className={header.bigHitterTitle.className}>mallard creek rec center</span>
+                  <span className={header.bigHitterText.className}>worship at 10:00 am</span>
                 </a>
               </li>
-              <li className="hero-3">
+              <li className={header.bigHitterItem.className}>
                 <a href="https://riverchurchcharlotte.elexiopulse.com/default.aspx#giving" className="btn btn--is-link">
-                  <i className="icon ion-cash"></i>
-                  <span className="bh__title">give online</span>
-                  <span>requires an elexio account</span>
+                  <i className={header.bigHitterIcon.className + ' ion-cash'}></i>
+                  <span className={header.bigHitterTitle.className}>give online</span>
+                  <span className={header.bigHitterText.className}>requires an elexio account</span>
                 </a>
               </li>
-              <li className="hero-4">
+              <li className={header.bigHitterItem.className}>
                 <a href="https://calendar.google.com">
-                  <i className="icon ion-calendar"></i>
-                  <span className="bh__title">upcoming events</span>
+                  <i className={header.bigHitterIcon.className + ' ion-calendar'}></i>
+                  <span className={header.bigHitterTitle.className}>upcoming events</span>
                 </a>
               </li>
             </ul>
-            <a href="#staff" className="read-more ion-chevron-down" aria-label="Scroll to Staff"></a>
-            <img id="hero-1" src="images/hero.png" />
+            <a href="#staff" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
+            <img className={header.heroImage.className} src="images/hero.png" />
           </section>
           <div className="some-may-call-this-a-belt">
-            <section id="sunday-morning">
+            <section className={layout.kids.className + ' ' + section.section.className}>
               <h2>sunday mornings</h2>
               <p className="quote">a place to belong and become like jesus</p>
               <section>
@@ -65,12 +75,12 @@ var Root = React.createClass({
                 </p>
               </section>
               <section>
-                <span className="section__name">podcasts</span>
+                <span className={section.sectionName.className}>podcasts</span>
                 <strong className="section__title">can’t make it in person?<br /></strong>
                 <p><a href="http://itunes">listen to our podcast</a></p>
               </section>
               <section>
-                <span className="section__name">music</span>
+                <span className={section.sectionName.className}>music</span>
                 <strong className="section__title">
                   <a href="http://www.deepwaterworship.com">river church live<br /></a>
                 </strong>
@@ -80,23 +90,24 @@ var Root = React.createClass({
                 </p>
               </section>
             </section>
-            <section id="kids">
+            <section className={layout.kids.className + ' ' + section.section.className}>
               <h2>river kids</h2>
               {kids.map(k => <Kid data={k} />)}
             </section>
           </div>
-          <section id="staff">
+          <section id="staff" className={section.section.className}>
             {staff.map(s => <Staff data={s} />)}
           </section>
 
-          <section id="connect-with-us">
+          <section id="connect-with-us" className={section.section.className}>
             <h1>connect with us</h1>
             <ContactForm />
           </section>
 
-          <footer id="footer">
-            <p>copyright &copy; 2014 river church charlotte</p>
+          <footer className={footer.footer.className}>
+            <p>copyright &copy; {new Date().getFullYear()} river church charlotte</p>
           </footer>
+          <script src="/public/js/main.js"></script>
         </body>
       </html>
     );
@@ -104,4 +115,3 @@ var Root = React.createClass({
 });
 
 module.exports = Root;
-

@@ -1,6 +1,7 @@
 'use strict';
 
 var Joi = require('joi');
+var path = require('path');
 
 module.exports = function(server) {
 
@@ -8,11 +9,16 @@ module.exports = function(server) {
   ['css', 'js', 'images'].forEach(function(a) {
     server.route({
       method: 'GET',
-      path: '/' + a + '/{param*}',
+      path: '/public/' + a + '/{filename}', // param* for other syntax
       handler: {
-        directory: {
-          path: 'dist/' + a
+        file: function (request) {
+          return path.join('public', 'js', request.params.filename);
         }
+        /* why is this syntax not working?
+        directory: {
+          path: __dirname + '/public'
+        }
+        */
       }
     });
   });
@@ -21,8 +27,7 @@ module.exports = function(server) {
     method: 'GET',
     path:'/', 
     handler: function (request, reply) {
-      var props = require('./content');
-      reply.view('index', props)
+      reply.view('index', {})
         .header('Content-Type', 'text/html;charset=UTF-8');
     }
   });
