@@ -1,4 +1,6 @@
 var path = require('path');
+// build css
+require('./rcss');
 
 module.exports = {
   entry: './views/client.jsx',

@@ -12,7 +12,7 @@ module.exports = function(server) {
       path: '/public/' + a + '/{filename}', // param* for other syntax
       handler: {
         file: function (request) {
-          return path.join('public', 'js', request.params.filename);
+          return path.join('public', a, request.params.filename);
         }
         /* why is this syntax not working?
         directory: {

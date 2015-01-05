@@ -28,7 +28,7 @@ var Root = React.createClass({
           <meta description="A church in Charlotte amazed by grace, declaring and demonstrating the love of God, the life of faith, and the hope of salvation." />
           <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:300,700" />
           <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
-          <link rel="stylesheet" href="css/main.css" />
+          <link rel="stylesheet" href="/public/css/all.css" />
         </head>
         <body>
           <section id="hero" className={header.hero.className}>
@@ -43,27 +43,27 @@ var Root = React.createClass({
                 </a>
               </li>
               <li className={header.bigHitterItem.className}>
-                <a href="https://riverchurchcharlotte.elexiopulse.com/default.aspx#giving" className="btn btn--is-link">
+                <a className={header.bigHitterButton.className} href="https://riverchurchcharlotte.elexiopulse.com/default.aspx#giving">
                   <i className={header.bigHitterIcon.className + ' ion-cash'}></i>
                   <span className={header.bigHitterTitle.className}>give online</span>
                   <span className={header.bigHitterText.className}>requires an elexio account</span>
                 </a>
               </li>
               <li className={header.bigHitterItem.className}>
-                <a href="https://calendar.google.com">
+                <a className={header.bigHitterButton.className} href="https://calendar.google.com">
                   <i className={header.bigHitterIcon.className + ' ion-calendar'}></i>
                   <span className={header.bigHitterTitle.className}>upcoming events</span>
                 </a>
               </li>
             </ul>
             <a href="#staff" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
-            <img className={header.heroImage.className} src="images/hero.png" />
+            <img className={header.heroImage.className} src="/public/images/hero.png" />
           </section>
-          <div className="some-may-call-this-a-belt">
-            <section className={layout.kids.className + ' ' + section.section.className}>
+          <div className={layout.theBelt.className}>
+            <section className={layout.sundays.className}>
               <h2>sunday mornings</h2>
-              <p className="quote">a place to belong and become like jesus</p>
-              <section>
+              <p className={section.quote.className}>a place to belong and become like jesus</p>
+              <div className={section.section.className}>
                 <em className="section__name">this sunday</em>
                 <strong className="section__title">jesus is inviting you to a banquet!!<br /></strong>
                 <p>
@@ -73,13 +73,13 @@ var Root = React.createClass({
                   repair and transform a broken relationship. we hope you&rsquo;ll let
                   him do that today. now.
                 </p>
-              </section>
-              <section>
+              </div>
+              <div className={section.section.className}>
                 <span className={section.sectionName.className}>podcasts</span>
                 <strong className="section__title">can’t make it in person?<br /></strong>
                 <p><a href="http://itunes">listen to our podcast</a></p>
-              </section>
-              <section>
+              </div>
+              <div className={section.lastSection.className}>
                 <span className={section.sectionName.className}>music</span>
                 <strong className="section__title">
                   <a href="http://www.deepwaterworship.com">river church live<br /></a>
@@ -88,18 +88,19 @@ var Root = React.createClass({
                   preview our album, <em>1 hope</em>, to experience the living
                   worship of our family.
                 </p>
-              </section>
+              </div>
             </section>
-            <section className={layout.kids.className + ' ' + section.section.className}>
+            <section className={layout.kids.className}>
               <h2>river kids</h2>
-              {kids.map(k => <Kid data={k} />)}
+              {kids.map(k => <Kid key={k.name} data={k} />)}
             </section>
           </div>
-          <section id="staff" className={section.section.className}>
-            {staff.map(s => <Staff data={s} />)}
+
+          <section id="staff" className={layout.staff.className}>
+            {staff.map(s => <Staff key={s.twitter} data={s} />)}
           </section>
 
-          <section id="connect-with-us" className={section.section.className}>
+          <section id="connect-with-us" className={layout.contact.className}>
             <h1>connect with us</h1>
             <ContactForm />
           </section>

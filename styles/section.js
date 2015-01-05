@@ -8,16 +8,17 @@ var quote = {
   fontStyle: 'italic',
   borderLeft: '4px solid #999',
   padding: '0 0 0 0.5em',
+  ':before': {
+    fontSize: '1.5em',
+    lineHeight: 0.666,
+    verticalAlign: 'bottom',
+  },
+  ':after': {
+    fontSize: '1.5em',
+    lineHeight: 0.666,
+    verticalAlign: 'bottom',
+  },
 };
-
-/*
-.quote:before,
-.quote:after {
-  font-size: 1.5em;
-  line-height: 0.666;
-  vertical-align: bottom;
-}
-*/
 
 var section = {
   padding: '0.6666em 0',
@@ -41,13 +42,11 @@ var sectionName = {
   fontStyle: 'italic',
   fontWeight: 'bold',
   marginBottom: '0.333em',
+  ':after': {
+    content: ':',
+  }
 };
 
-/*
-.section__name:after {
-  content: ':';
-}
-*/
 //var SELECTORS = [quote, section, lastSection, sectionAnchor, sectionName];
 
 module.exports = {
