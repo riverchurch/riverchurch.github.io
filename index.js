@@ -2,18 +2,25 @@
 
 var Hapi = require('hapi');
 var path = require('path');
-var PORT = 8000;
 var readdir = require('fs').readdirSync;
+
+try {
+  require('./lib/extend')(process.env, require('./.config'));
+}
+catch (e) {}
+var PORT = process.env.PORT || 8000;
 
 var server = new Hapi.Server();
 server.connection({port: PORT});
 
 // load plugins
 
-server.register(
-  readdir('plugins').map(function(p) { return require('./plugins/' + p); }),
-  startServer
-);
+if (!module.parent) {
+  server.register(
+    readdir('plugins').map(function(p) { return require('./plugins/' + p); }),
+    startServer
+  );
+}
 
 // set view engine
 
@@ -33,7 +40,9 @@ server.views({
 require('./routes')(server);
 
 function startServer() {
-  server.start(function () {
+  server.start(function() {
     server.log('info', 'Server running at: ' + server.info.uri);
   });
 }
+
+module.exports = server;

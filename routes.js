@@ -42,34 +42,34 @@ module.exports = function(server) {
           name: Joi.string().min(3).max(10).label('Name'),
           email: Joi.string().email().label('Email'),
           phone: Joi.string().min(7).max(12).label('Phone'),
-          'life-status': Joi.any().allow(['Single', 'Married']).label('Life Status'),
-          prayer: Joi.string().optional().label('Prayer'),
-          'whatcha-need': Joi.string().optional().label('How can we best serve you?'),
+          'life-status': Joi.string().valid(['Single', 'Married']).label('Life Status'),
+          prayer: Joi.string().optional().allow('').label('Prayer'),
+          'whatcha-need': Joi.string().optional().allow('').label('How can we best serve you?'),
         }
       }
     },
     handler: function(request, reply) {
-      /*
+      var payload = request.payload;
+
       var data = {
-        from: 'example@gmail.com',
-        to: 'dustan.kasten@gmail.com',
-        subject: 'Example Subject',
+        from: payload.email,
+        to: process.env.MAILER_TO,
+        subject: 'RiverChurch.com Contact Form',
         html: {
           path: 'contact-email.jsx'
         },
-        context: {
-          name: 'Example User'
-        }
+        context: payload,
       };
 
       var Mailer = request.server.plugins.mailer;
-      Mailer.sendMail(data, function (err, info) {
-        reply();
-      });
-      */
+      if (Mailer) {
+        Mailer.sendMail(data, function (err, info) {
+          if (err) server.log('error', err);
+          else server.log('info', 'Mail sent.', info);
+        });
+      }
 
       reply('Thank you.');
     }
   });
-
 };

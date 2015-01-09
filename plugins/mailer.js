@@ -4,11 +4,11 @@ var Mailer = require('hapi-mailer');
 
 var options = {
   transport: {
-    service: 'Gmail',
-    auth: {
-      user: 'example@gmail.com',
-      pass: 'password',
-    }
+   service: 'Mandrill',
+   auth: {
+     user: process.env.MAILER_USERNAME,
+     pass: process.env.MAILER_PASSWORD,
+   },
   },
   views: {
     engines: {
