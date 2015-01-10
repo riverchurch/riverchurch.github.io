@@ -39,15 +39,25 @@ var image = RCSS.cascade(CHILD_BASE, {
   zIndex: 0
 });
 
-var anchor = RCSS.cascade(CHILD_BASE, {
+var socialMedia = RCSS.cascade(CHILD_BASE, {
   position: 'absolute',
   bottom: 0,
   left: 0,
-  height: '1em',
-  width: '1em',
+  height: '1.333em',
+  width: '1.333em',
   background: '#41a094',
   overflow: 'hidden',
 });
+
+var twitterIcon = {
+  background: 'url(/public/images/icon-twitter.svg) no-repeat',
+  backgroundSize: 'contain',
+  display: 'block',
+  margin: '15% 10% 5% 10%',
+  maxWidth: '80%',
+  maxHeight: '80%',
+  textIndent: '-99em',
+};
 
 var name = RCSS.cascade(CHILD_BASE, {
   fontSize: '1.333em',
@@ -70,7 +80,8 @@ var title = RCSS.cascade(CHILD_BASE, {});
 module.exports = {
   mod: RCSS.registerClass(mod),
   image: RCSS.registerClass(image),
-  anchor: RCSS.registerClass(anchor),
+  socialMedia: RCSS.registerClass(socialMedia),
+  twitterIcon: RCSS.registerClass(twitterIcon),
   name: RCSS.registerClass(name),
   bio: RCSS.registerClass(bio),
   title: RCSS.registerClass(title),

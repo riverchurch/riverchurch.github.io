@@ -27,7 +27,7 @@ module.exports = function(server) {
     method: 'GET',
     path:'/', 
     handler: function (request, reply) {
-      reply.view('index', {})
+      reply.view('home', {})
         .header('Content-Type', 'text/html;charset=UTF-8');
     }
   });
@@ -41,6 +41,13 @@ module.exports = function(server) {
     }
   });
 
+  server.route({
+    method: 'GET',
+    path: '/feed/podcast',
+    handler: function(request, reply) {
+      return reply.redirect('http://feeds.soundcloud.com/users/soundcloud:users:118020810/sounds.rss').code(301);
+    }
+  });
 
   server.route({
     method: 'POST',

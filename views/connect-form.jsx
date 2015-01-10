@@ -39,7 +39,6 @@ var ContactForm = React.createClass({
     })
     .then(toJSON)
     .then(data => {
-      console.log(self === this, this);
       if (data.statusCode !== 200) {
         this.setState({errors: data.message.split('.')});
       }
@@ -53,12 +52,10 @@ var ContactForm = React.createClass({
     var o = {};
     var {name, value} = e.target;
     o[name] = value;
-    console.log('updating state', o);
     this.setState(o);
   },
 
   render() {
-    console.log(this.state);
     if (this.state.completedMessage) {
       return (
         <div>{this.state.completedMessage}</div>

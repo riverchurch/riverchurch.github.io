@@ -1,6 +1,7 @@
 var React = require('react');
-var Index = require('./index.jsx');
+var Connect = require('./../connect.jsx');
 
 // var RCSS = require('rcss');
 // RCSS.injectAll();
-React.render(<Index />, document);
+React.render(<Connect />, document);
+

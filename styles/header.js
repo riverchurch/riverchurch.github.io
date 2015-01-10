@@ -20,7 +20,7 @@ var hero = {
 
 var heroTitle = {
   fontSize: '3em',
-  margin: '0 auto',
+  margin: '10% auto 0 auto',
   opacity: '0.95',
   textShadow: '0 0 2px rgba(0, 0, 0, 0.333)',
   textTransform: 'uppercase',
