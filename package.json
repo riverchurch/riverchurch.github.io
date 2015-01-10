@@ -21,7 +21,9 @@
     "pngcrush": "0.1.0"
   },
   "dependencies": {
+    "es6-promise": "^2.0.1",
     "expose-loader": "^0.6.0",
+    "fetch": "git://github.com/github/fetch#9b1ddc9ef47011c2c9b0c9bc89e7ec09cf5ca962",
     "good": "^5.0.0",
     "good-console": "^3.0.2",
     "hapi": "^8.1.0",

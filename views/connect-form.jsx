@@ -69,10 +69,20 @@ var ContactForm = React.createClass({
       <form action="/contact" method="post" onSubmit={this.handleSubmit}>
         {this.state.errors.map(e => <div key={e}>{e}</div>)}
         <Floater label="full name" onChange={this.updateState} />
-        <Floater label="email" onChange={this.updateState} />
+        <Floater label="street address" onChange={this.updateState} />
+        <Floater label="city, state, zip" onChange={this.updateState} />
         <Floater label="phone number" id="phone" onChange={this.updateState} />
+        <Floater label="life-status" id="life-status" onChange={this.updateState} />
+        <Floater label="email" onChange={this.updateState} />
+        <Floater label="gender" onChange={this.updateState} />
+        <Floater label="birthday" onChange={this.updateState} />
+        <Floater label="twitter" onChange={this.updateState} />
+        <Floater label="facebook" onChange={this.updateState} />
+        <Floater label="instagram" onChange={this.updateState} />
+        <div style={{height: '3px', background: '#ccc', margin: '2em 0'}}></div>
         <Floater input={'textarea'} rows="5" label="how can we pray for you?" id="prayer" onChange={this.updateState} />
-        <Floater input={'textarea'} rows="5" label="how can we best serve you?" id="whatcha-need" onChange={this.updateState} />
+        <Floater input={'textarea'} rows="5" label="what is God doing in your life?" id="god-is-doing" onChange={this.updateState} />
+        <Floater input={'textarea'} rows="5" label="questions? comments?" id="comments" onChange={this.updateState} />
         <button className={css.button.className} type="submit">send</button>
       </form>
     );

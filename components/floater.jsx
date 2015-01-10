@@ -19,6 +19,10 @@ var Floater = React.createClass({
     var {value} = e.target;
     var labelClass = getLabelSelector(value);
     this.setState({value, labelClass});
+
+    if (typeof this.props.onChange === 'function') {
+      this.props.onChange(e);
+    }
   },
 
   componentDidMount() {

@@ -33,16 +33,25 @@ module.exports = function(server) {
   });
 
   server.route({
+    method: 'GET',
+    path:'/connect', 
+    handler: function (request, reply) {
+      reply.view('connect', {})
+        .header('Content-Type', 'text/html;charset=UTF-8');
+    }
+  });
+
+
+  server.route({
     method: 'POST',
     path: '/contact',
     config: {
       validate: {
         options: {abortEarly: false},
         payload: {
-          name: Joi.string().min(3).max(10).label('Name'),
+          'full-name': Joi.string().min(3).max(30).label('Full Name'),
           email: Joi.string().email().label('Email'),
           phone: Joi.string().min(7).max(12).label('Phone'),
-          'life-status': Joi.string().valid(['Single', 'Married']).label('Life Status'),
           prayer: Joi.string().optional().allow('').label('Prayer'),
           'whatcha-need': Joi.string().optional().allow('').label('How can we best serve you?'),
         }
@@ -62,14 +71,20 @@ module.exports = function(server) {
       };
 
       var Mailer = request.server.plugins.mailer;
-      if (Mailer) {
-        Mailer.sendMail(data, function (err, info) {
+      if (Mailer && false) {
+        Mailer.sendMail(data, function(err, info) {
           if (err) server.log('error', err);
           else server.log('info', 'Mail sent.', info);
         });
       }
 
-      reply('Thank you.');
+      switch (request.headers.accept) {
+      case 'application/json':
+        reply({message: 'Thank you.'}).code(200);
+        break;
+      default:
+        reply('Thank you.');
+      }
     }
   });
 };
