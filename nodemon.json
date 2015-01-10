@@ -1,0 +1,12 @@
+{
+  "verbose": true,
+  "watch": "*.js",
+  "ignore": [
+    "_old/*",
+    "data/*",
+    "public/*",
+    "styles/*",
+    "node_modules/*",
+    "test/*"
+  ]
+}
