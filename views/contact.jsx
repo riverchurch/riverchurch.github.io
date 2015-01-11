@@ -8,7 +8,8 @@ if (typeof window !== 'undefined') {
   require('fetch');
 }
 
-var toJSON = resp =>  resp.json();
+var toJSON = resp => resp.json();
+var isLast = (array, i) => i === array.length - 1;
 
 var ContactForm = React.createClass({
   getInitialState() {
@@ -39,11 +40,16 @@ var ContactForm = React.createClass({
     })
     .then(toJSON)
     .then(data => {
-      if (data.statusCode !== 200) {
-        this.setState({errors: data.message.split('.')});
+      if (data.statusCode && data.statusCode !== 200) {
+        this.setState({
+          errors: data.message.split('.')
+        });
       }
       else {
-        this.setState({completedMessage: data.message});
+        this.setState({
+          completedMessage: data.message,
+          errors: this.state.errors.slice(this.state.errors.length)
+        });
       }
     });
   },
@@ -58,13 +64,20 @@ var ContactForm = React.createClass({
   render() {
     if (this.state.completedMessage) {
       return (
-        <div>{this.state.completedMessage}</div>
+        <div className={css.successMessage.className}>{this.state.completedMessage}</div>
       );
     }
 
+    var errors = this.state.errors
+      .filter(e => !e.match('is not allowed to be empty'))
+      .map((e, i, arr) => {
+        var selector = isLast(arr, i) ? 'lastErrorMessage' : 'errorMessage';
+        return (<div className={css[selector].className} key={e}>{e}</div>);
+      });
+
     return (
       <form action="/contact" method="post" onSubmit={this.handleSubmit}>
-        {this.state.errors.map(e => <div key={e}>{e}</div>)}
+        {errors}
         <Floater label="full name" onChange={this.updateState} />
         <Floater label="email" onChange={this.updateState} />
         <Floater label="phone number" id="phone" onChange={this.updateState} />

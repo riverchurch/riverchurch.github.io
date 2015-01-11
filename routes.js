@@ -87,10 +87,12 @@ module.exports = function(server) {
 
       switch (request.headers.accept) {
       case 'application/json':
-        reply({message: 'Thank you.'}).code(200);
+        reply({message: 'We have received your message and are thankful you have contacted us.'}).code(200);
         break;
       default:
-        reply('Thank you.');
+        // TODO: handle js free thank you view
+        reply.view('home', {message: 'Thank you.'})
+          .header('Content-Type', 'text/html;charset=UTF-8');
       }
     }
   });

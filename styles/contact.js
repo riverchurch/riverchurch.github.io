@@ -45,6 +45,26 @@ var textfield = RCSS.cascade(INPUT_BASE, {
   },
 });
 
+var successMessage = {
+  background: '#41A094',
+  color: '#fff',
+  fontSize: '1.3333em',
+  padding: '2em',
+  borderBottom: '2px solid #565656',
+  marginBottom: '14em',
+};
+
+var errorMessage = {
+  background: '#ea5a4b',
+  border: 0,
+  color: '#fff',
+  padding: '0.3333em 0.666em'
+};
+
+var lastErrorMessage = RCSS.cascade(errorMessage, {
+  borderBottom: '2px solid #ce2d1c'
+});
+
 var button = {
   background: '#fafafa',
   border: 0,
@@ -68,6 +88,9 @@ module.exports = {
   fieldset: RCSS.registerClass(fieldset),
   label: RCSS.registerClass(label),
   label__hasContent: RCSS.registerClass(label__hasContent),
+  successMessage: RCSS.registerClass(successMessage),
+  errorMessage: RCSS.registerClass(errorMessage),
+  lastErrorMessage: RCSS.registerClass(lastErrorMessage),
   textfield: RCSS.registerClass(textfield),
   button: RCSS.registerClass(button),
 };
