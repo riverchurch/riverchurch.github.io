@@ -6,6 +6,7 @@ var ROOT = path.join(__dirname, '..', 'styles');
 var normalize = fs.readFileSync(path.join(ROOT, 'normalize.css'));
 var base = fs.readFileSync(path.join(ROOT, 'base.css'));
 
+require('mkdirp')(path.join(__dirname, '..', 'public', 'css'));
 fs.watch(ROOT, {}, buildStyles);
 
 // fill up RCSS's registry

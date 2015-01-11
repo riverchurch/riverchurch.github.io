@@ -16,6 +16,7 @@
     "code": "^1.2.1",
     "imagemin-pngcrush": "~1.0.0",
     "lab": "^5.1.1",
+    "mkdirp": "^0.5.0",
     "nodemon": "^1.2.1",
     "normalize.css": "~3.0.1",
     "pngcrush": "0.1.0"
