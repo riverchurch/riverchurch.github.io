@@ -9,11 +9,13 @@ var before = lab.before;
 var after = lab.after;
 var expect = Code.expect;
 
+var SUCCESS_MESSAGE =  'We have received your message and are thankful you have contacted us.';
+
 function validContactPayload() {
   return {
-    name: 'Hapi Test',
+    'full-name': 'Hapi Test',
     email: 'hapiriverchurch@test.com',
-    'life-status': 'Single',
+    phone: '2345678901',
     'prayer': '',
   };
 }
@@ -24,10 +26,9 @@ describe('contact', function () {
       method: 'POST',
       url: '/contact',
       payload: {
-        name: 'George Lucas the first',
+        'full-name': 'George Lucas the first',
         email: '47',
         phone: '234567',
-        'life-status': 'hello',
       }
     };
 
@@ -36,39 +37,42 @@ describe('contact', function () {
       var messages = result.message.split('.');
       expect(response.statusCode).to.equal(400);
       expect(result.error).to.equal('Bad Request');
-      expect(messages).to.have.length(4);
+      expect(messages).to.have.length(2);
 
       done();
     });
   });
 
-  it('responds successfully', function (done) {
+  it('responds successfully with json', function (done) {
     var options = {
       method: 'POST',
       url: '/contact',
-      payload: validContactPayload()
+      payload: validContactPayload(),
+      headers: {
+        accept: 'application/json',
+      },
     };
 
     server.inject(options, function(response) {
       var result = response.result;
       expect(response.statusCode).to.equal(200);
-      expect(result).to.equal('Thank you.');
+      expect(result.message).to.equal(SUCCESS_MESSAGE);
 
       done();
     });
   });
 
-  it('saves to the database', function (done) {
+  it('responds successfully with html', function (done) {
     var options = {
       method: 'POST',
       url: '/contact',
-      payload: validContactPayload()
+      payload: validContactPayload(),
     };
 
     server.inject(options, function(response) {
       var result = response.result;
       expect(response.statusCode).to.equal(200);
-      expect(result).to.equal('Thank you.');
+      expect(result).to.match(/^<!DOCTYPE html>/);
 
       done();
     });
