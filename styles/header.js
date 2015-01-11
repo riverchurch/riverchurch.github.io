@@ -10,12 +10,15 @@ var logo = {
 var hero = {
   background: '#01386b',
   color: '#fff',
-  minHeight: '100vh',
+  height: 'calc(100vh)',
   overflow: 'hidden',
   padding: '3em 5%',
   position: 'relative',
   textAlign: 'center',
   zIndex: '0',
+  '@media screen and (max-height: 767px)': {
+    height: 'auto',
+  },
 };
 
 var heroTitle = {

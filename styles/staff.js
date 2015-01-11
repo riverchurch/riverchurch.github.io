@@ -62,6 +62,8 @@ var twitterIcon = {
 var name = RCSS.cascade(CHILD_BASE, {
   fontSize: '1.333em',
   fontWeight: 700,
+  height: '2em',
+  lineHeight: 1,
   '@media screen and (min-width: 1000px)': {
     fontSize: '1.666em',
   },

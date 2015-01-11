@@ -56,8 +56,8 @@ var Root = React.createClass({
             <h2>sunday mornings</h2>
             <p className={section.quote.className}>a place to belong and become like jesus</p>
             <div className={section.section.className}>
-              <em className="section__name">this sunday</em>
-              <strong className="section__title">jesus is inviting you to a banquet!!<br /></strong>
+              <em className={section.sectionName.className}>this sunday</em>
+              <strong className={section.sectionTitle.className}>jesus is inviting you to a banquet!!<br /></strong>
               <p>
                 jesus loves you. he wants to bless you. he wants to serve you. i
                 know it&rsquo;s crazy. the king of the universe wants to serve you.
@@ -68,12 +68,12 @@ var Root = React.createClass({
             </div>
             <div className={section.section.className}>
               <span className={section.sectionName.className}>podcasts</span>
-              <strong className="section__title">can’t make it in person?<br /></strong>
+              <strong className={section.sectionTitle.className}>can’t make it in person?<br /></strong>
               <p><a className={section.sectionAnchor.className} href="http://itunes">listen to our podcast</a></p>
             </div>
             <div className={section.lastSection.className}>
               <span className={section.sectionName.className}>music</span>
-              <strong className="section__title">
+              <strong className={section.sectionTitle.className}>
                 <a className={section.sectionAnchor.className} href="http://www.deepwaterworship.com">river church live<br /></a>
               </strong>
               <p>

@@ -5,7 +5,6 @@
     "_old/*",
     "data/*",
     "public/*",
-    "styles/*",
     "node_modules/*",
     "test/*"
   ]
