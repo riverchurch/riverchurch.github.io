@@ -91,6 +91,9 @@ var bigHitterText = {
   '@media screen and (min-width: 600px)': {
     color: '#137771',
   },
+  '@media screen and (max-width: 600px)': {
+    color: '#fff',
+  },
 };
 
 var bigHitterTitle = RCSS.cascade({

@@ -36,7 +36,7 @@ var Root = React.createClass({
               <a className={header.bigHitterButton.className} href="http://pushpay.com/pay/riverchurchcharlotte">
                 <i className={header.bigHitterIcon.className + ' ion-cash'}></i>
                 <span className={header.bigHitterTitle.className}>give online</span>
-                <span className={header.bigHitterText.className}>requires an elexio account</span>
+                <span className={header.bigHitterText.className}>with our partner PushPay</span>
               </a>
             </li>
             {/*
@@ -69,12 +69,12 @@ var Root = React.createClass({
             <div className={section.section.className}>
               <span className={section.sectionName.className}>podcasts</span>
               <strong className="section__title">can’t make it in person?<br /></strong>
-              <p><a href="http://itunes">listen to our podcast</a></p>
+              <p><a className={section.sectionAnchor.className} href="http://itunes">listen to our podcast</a></p>
             </div>
             <div className={section.lastSection.className}>
               <span className={section.sectionName.className}>music</span>
               <strong className="section__title">
-                <a href="http://www.deepwaterworship.com">river church live<br /></a>
+                <a className={section.sectionAnchor.className} href="http://www.deepwaterworship.com">river church live<br /></a>
               </strong>
               <p>
                 preview our album, <em>1 hope</em>, to experience the living

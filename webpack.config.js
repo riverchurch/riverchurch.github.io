@@ -5,7 +5,6 @@ var entries = require('fs').readdirSync('./views/client').reduce(function(o, n) 
   o[n.replace('.jsx', '')] = './views/client/' + n;
   return o;
 }, {});
-console.log(entries);
 
 module.exports = {
   entry: entries,

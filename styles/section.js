@@ -32,6 +32,9 @@ var lastSection = RCSS.cascade(section, {
 var sectionAnchor = {
   color: '#002759',
   textDecoration: 'none',
+  '@media screen and (min-width: 601px)': {
+    color: '#fff',
+  },
 };
 
 var sectionName = {
