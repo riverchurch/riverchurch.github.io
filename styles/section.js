@@ -8,18 +8,21 @@ var quote = {
   fontStyle: 'italic',
   borderLeft: '4px solid #999',
   padding: '0 0 0 0.5em',
-  ':before, :after': {
+  ':before': {
     fontSize: '1.5em',
     lineHeight: 0.666,
     position: 'relative',
     top: '0.1666em',
     verticalAlign: 'bottom',
-  },
-  ':before': {
     content: '“',
     paddingRight: '0.1111em',
   },
   ':after': {
+    fontSize: '1.5em',
+    lineHeight: 0.666,
+    position: 'relative',
+    top: '0.1666em',
+    verticalAlign: 'bottom',
     content: '”',
     paddingLeft: '0.1111em',
   },

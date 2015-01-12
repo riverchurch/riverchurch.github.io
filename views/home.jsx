@@ -3,7 +3,7 @@ var BaseLayout = require('./layouts/base.jsx');
 var Kid = require('./kid.jsx');
 var Staff = require('./staff.jsx');
 var ContactForm = require('./contact.jsx');
-var CONTENT = require('../content');
+var CONTENT = require('../model/content');
 var layout = require('../styles/layout');
 var header = require('../styles/header');
 var section = require('../styles/section');
@@ -11,13 +11,19 @@ var footer = require('../styles/footer');
 var Logo = require('./logo.jsx');
 
 var Root = React.createClass({
-
   getDefaultProps() {
     return CONTENT;
   },
 
   render() {
-    var {kids, staff} = this.props;
+    var {kids, staff, sunday} = this.props;
+    // TODO: make this isomorphically dynamic
+    if (typeof sunday === 'undefined') {
+      sunday = {
+        title: 'Convinced',
+        description: 'This series is all about getting convinced of God’s love for us and reorienting our lives to focus on what really matters.',
+      };
+    }
 
     return (
       <BaseLayout module="home">
@@ -56,20 +62,14 @@ var Root = React.createClass({
             <h2>sunday mornings</h2>
             <p className={section.quote.className}>a place to belong and become like jesus</p>
             <div className={section.section.className}>
-              <em className={section.sectionName.className}>this sunday</em>
-              <strong className={section.sectionTitle.className}>jesus is inviting you to a banquet!!<br /></strong>
-              <p>
-                jesus loves you. he wants to bless you. he wants to serve you. i
-                know it&rsquo;s crazy. the king of the universe wants to serve you.
-                the root of this desire is god&rsquo;s heart to heal our heart. to
-                repair and transform a broken relationship. we hope you&rsquo;ll let
-                him do that today. now.
-              </p>
+              <em className={section.sectionName.className}>last sunday</em>
+              <strong className={section.sectionTitle.className}>{sunday.title}<br /></strong>
+              <p>{sunday.description}</p>
             </div>
             <div className={section.section.className}>
               <span className={section.sectionName.className}>podcasts</span>
               <strong className={section.sectionTitle.className}>can’t make it in person?<br /></strong>
-              <p><a className={section.sectionAnchor.className} href="http://itunes">listen to our podcast</a></p>
+              <p><a className={section.sectionAnchor.className} href="https://soundcloud.com/rivercharlotte/">listen to our podcast</a></p>
             </div>
             <div className={section.lastSection.className}>
               <span className={section.sectionName.className}>music</span>

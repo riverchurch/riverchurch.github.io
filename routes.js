@@ -2,6 +2,7 @@
 
 var Joi = require('joi');
 var path = require('path');
+var service = require('./model/service');
 
 module.exports = function(server) {
 
@@ -26,9 +27,11 @@ module.exports = function(server) {
   server.route({
     method: 'GET',
     path:'/', 
-    handler: function (request, reply) {
-      reply.view('home', {})
-        .header('Content-Type', 'text/html;charset=UTF-8');
+    handler: function(request, reply) {
+      service.get().then(function(sunday) {
+        reply.view('home', {sunday: sunday})
+          .header('Content-Type', 'text/html;charset=UTF-8');
+      });
     }
   });
 
@@ -91,9 +94,21 @@ module.exports = function(server) {
         break;
       default:
         // TODO: handle js free thank you view
-        reply.view('home', {message: 'Thank you.'})
-          .header('Content-Type', 'text/html;charset=UTF-8');
+        service.get().then(function(sunday) {
+          reply.view('home', {sunday: sunday, message: 'Thank you.'})
+            .header('Content-Type', 'text/html;charset=UTF-8');
+        });
       }
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/api/last-sunday',
+    handler: function(request, reply) {
+      service.get().then(function(data) {
+        reply({sunday: sunday});
+      });
     }
   });
 };
