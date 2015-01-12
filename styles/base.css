@@ -6,6 +6,7 @@
 body {
   background: #f4f4f4;
   font-family: 'Raleway', 'Quicksand', sans-serif;
+  scroll-behavior: smooth;
 }
 
 ol,
