@@ -9,37 +9,53 @@ var label = {
   fontWeight: 'bold',
 };
 
+var table ={
+  width: '100%'
+  borderBottom: '1px solid #eee',
+  lineHeight: '135%',
+  cellpadding: '0',
+  cellspacing: '0',
+};
+
+var altRow = {
+  backgroundColor: '#f5f5f5',
+};
+
+var value = {};
+
 var ContactEmail = React.createClass({
   render() {
     var {name, email, phone, prayer} = this.props;
-    var lifeStatus = this.props['life-status'];
     var comments = this.props['whatcha-need'];
     return (
       <div>
         <h1>{name}</h1>
         <strong>RiverChurchCharlotte.com Contact Form</strong>
         <div style={divider}></div>
-        <div>
-          <span style={label}>Name: </span>
-          <strong>{name}</strong>
-        </div>
-        <div>
-          <span style={label}>Email: </span>
-          <strong>{email}</strong>
-        </div>
-        <div>
-          <span style={label}>Life Status: </span>
-          <strong>{lifeStatus}</strong>
-        </div>
-        <div>
-          <span style={label}>Prayer Request: </span>
-          <strong>{prayer}</strong>
-        </div>
-        <div>
-          <span style={label}>Comments: </span>
-          <strong>{comments}</strong>
-        </div>
-      </div>
+        <table style={table}>
+          <tbody>
+            <tr style={altRow}>
+              <th style={label}>Name:</th>
+              <td style={value}>{name}</td>
+            </tr>
+            <tr>
+              <th style={label}>Email:</th>
+              <td style={value}>{email}</td>
+            </tr>
+            <tr style={altRow}>
+              <th style={label}>Phone:</th>
+              <td style={value}>{phone}</td>
+            </tr>
+            <tr>
+              <th style={label}>Prayer Request:</th>
+              <td style={value}>{prayer}</td>
+            </tr>
+            <tr style={altRow}>
+              <th style={label}>Comments:</th>
+              <td style={value}>{comments}</td>
+            </tr>
+          </tbody>
+        </table>
     );
   }
 });
