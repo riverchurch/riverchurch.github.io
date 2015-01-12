@@ -13,3 +13,8 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+.g-recaptcha {
+  margin-top: 2em;
+  min-height: 78px;
+}

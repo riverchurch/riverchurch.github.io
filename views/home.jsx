@@ -96,6 +96,7 @@ var Root = React.createClass({
           <h1>connect with us</h1>
           <ContactForm />
         </section>
+        <script src='https://www.google.com/recaptcha/api.js' async></script>
       </BaseLayout>
     );
   }

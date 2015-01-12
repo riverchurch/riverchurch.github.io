@@ -3,6 +3,7 @@
 var Joi = require('joi');
 var path = require('path');
 var service = require('./model/service');
+var validateHuman = require('./lib/validateHuman');
 
 module.exports = function(server) {
 
@@ -64,41 +65,44 @@ module.exports = function(server) {
           phone: Joi.string().min(7).max(12).label('Phone'),
           prayer: Joi.string().optional().allow('').label('Prayer'),
           'whatcha-need': Joi.string().optional().allow('').label('How can we best serve you?'),
+          'g-recaptcha-response': Joi.string().allow(''),
         }
       }
     },
     handler: function(request, reply) {
       var payload = request.payload;
 
-      var data = {
-        from: payload.email,
-        to: process.env.MAILER_TO,
-        subject: 'RiverChurch.com Contact Form',
-        html: {
-          path: 'contact-email.jsx'
-        },
-        context: payload,
-      };
+      validateHuman(request).then(function(isHuman) {
+        var data = {
+          from: payload.email,
+          to: process.env.MAILER_TO,
+          subject: 'RiverChurch.com Contact Form',
+          html: {
+            path: 'contact-email.jsx'
+          },
+          context: payload,
+        };
 
-      var Mailer = request.server.plugins.mailer;
-      if (Mailer && false) {
-        Mailer.sendMail(data, function(err, info) {
-          if (err) server.log('error', err);
-          else server.log('info', 'Mail sent.', info);
-        });
-      }
+        var Mailer = request.server.plugins.mailer;
+        if (Mailer) {
+          Mailer.sendMail(data, function(err, info) {
+            if (err) server.log('error', err);
+            else server.log('info', 'Mail sent.', info);
+          });
+        }
 
-      switch (request.headers.accept) {
-      case 'application/json':
-        reply({message: 'We have received your message and are thankful you have contacted us.'}).code(200);
-        break;
-      default:
-        // TODO: handle js free thank you view
-        service.get().then(function(sunday) {
-          reply.view('home', {sunday: sunday, message: 'Thank you.'})
-            .header('Content-Type', 'text/html;charset=UTF-8');
-        });
-      }
+        switch (request.headers.accept) {
+        case 'application/json':
+          reply({message: 'We have received your message and are thankful you have contacted us.'}).code(200);
+          break;
+        default:
+          // TODO: handle js free thank you view
+          service.get().then(function(sunday) {
+            reply.view('home', {sunday: sunday, message: 'Thank you.'})
+              .header('Content-Type', 'text/html;charset=UTF-8');
+          });
+        }
+      });
     }
   });
 

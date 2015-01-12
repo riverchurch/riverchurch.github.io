@@ -83,6 +83,7 @@ var ContactForm = React.createClass({
         <Floater label="phone number" id="phone" onChange={this.updateState} />
         <Floater input={'textarea'} rows="5" label="how can we pray for you?" id="prayer" onChange={this.updateState} />
         <Floater input={'textarea'} rows="5" label="how can we best serve you?" id="whatcha-need" onChange={this.updateState} />
+        <div className="g-recaptcha" data-sitekey="6Lf4UwATAAAAAOdJAztEdOEz9EPoNJi7Yt007mUY"></div>
         <button className={css.button.className} type="submit">send</button>
       </form>
     );
