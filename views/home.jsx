@@ -21,7 +21,7 @@ var Root = React.createClass({
     if (typeof sunday === 'undefined') {
       sunday = {
         title: 'Convinced',
-        description: 'This series is all about getting convinced of God’s love for us and reorienting our lives to focus on what really matters.',
+        description: 'Derek Turner - Convinced - Part 2 by River Church Charlotte',
       };
     }
 

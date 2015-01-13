@@ -1,6 +1,6 @@
 var axios = require('axios');
 var parseString = require('xml2js').parseString;
-var last = require('./../lib/last');
+var nth = require('./../lib/nth');
 var Promise = require('es6-promise').Promise;
 
 // http://stackoverflow.com/questions/6117814/get-week-of-year-in-javascript-like-in-php
@@ -33,7 +33,7 @@ function get() {
       .then(function(resp) {
         return parseString(resp.data, function(err, result) {
           var recent = result.rss.channel[0].item[0];
-          var title = last(recent.title[0].split(/\s+?-\s+?/));
+          var title = nth(recent.title[0].split(/\s+?-\s+?/), 1);
           var description = recent.description[0];
           resolve({title: title, description: description});
         });
