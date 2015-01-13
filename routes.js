@@ -4,6 +4,8 @@ var Joi = require('joi');
 var path = require('path');
 var service = require('./model/service');
 var validateHuman = require('./lib/validateHuman');
+var CONTENT = require('./model/content');
+var extend = require('./lib/extend');
 
 module.exports = function(server) {
 
@@ -29,8 +31,9 @@ module.exports = function(server) {
     method: 'GET',
     path:'/', 
     handler: function(request, reply) {
+      // TODO: contextify each response: https://github.com/brianmcd/contextify
       service.get().then(function(sunday) {
-        reply.view('home', {sunday: sunday})
+        reply.view('home', extend({}, CONTENT, {sunday: sunday}))
           .header('Content-Type', 'text/html;charset=UTF-8');
       });
     }

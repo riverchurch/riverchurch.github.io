@@ -3,7 +3,6 @@ var BaseLayout = require('./layouts/base.jsx');
 var Kid = require('./kid.jsx');
 var Staff = require('./staff.jsx');
 var ContactForm = require('./contact.jsx');
-var CONTENT = require('../model/content');
 var layout = require('../styles/layout');
 var header = require('../styles/header');
 var section = require('../styles/section');
@@ -12,21 +11,21 @@ var Logo = require('./logo.jsx');
 
 var Root = React.createClass({
   getDefaultProps() {
-    return CONTENT;
+    // rehydrate
+    if (typeof window === 'undefined') {
+      return {};
+    }
+
+    var props = window.__rehydration;
+    delete window.__rehydration;
+    return props;
   },
 
   render() {
     var {kids, staff, sunday} = this.props;
-    // TODO: make this isomorphically dynamic
-    if (typeof sunday === 'undefined') {
-      sunday = {
-        title: 'Convinced',
-        description: 'Derek Turner - Convinced - Part 2 by River Church Charlotte',
-      };
-    }
 
     return (
-      <BaseLayout module="home">
+      <BaseLayout module="home" rehydration={this.props}>
         <section id="hero" className={header.hero.className}>
           <Logo />
           <h1 className={header.heroTitle.className}>welcome home</h1>
