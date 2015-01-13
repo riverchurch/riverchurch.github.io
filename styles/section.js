@@ -48,6 +48,11 @@ var sectionAnchor = {
   },
 };
 
+var podcastAnchor = RCSS.cascade(sectionAnchor, {
+  marginLeft: '1em',
+  display: 'block',
+});
+
 var sectionTitle = {};
 
 var sectionName = {
@@ -66,13 +71,15 @@ var sectionName = {
   },
 };
 
-//var SELECTORS = [quote, section, lastSection, sectionAnchor, sectionName];
+//var SELECTORS = [quote, section, lastSection, sectionAnchor, podcastAnchor,
+// sectionTitle, sectionName];
 
 module.exports = {
   quote: RCSS.registerClass(quote),
   section: RCSS.registerClass(section),
   lastSection: RCSS.registerClass(lastSection),
   sectionAnchor: RCSS.registerClass(sectionAnchor),
+  podcastAnchor: RCSS.registerClass(podcastAnchor),
   sectionTitle: RCSS.registerClass(sectionTitle),
   sectionName: RCSS.registerClass(sectionName),
 };

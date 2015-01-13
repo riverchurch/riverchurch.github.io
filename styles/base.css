@@ -5,7 +5,9 @@
 
 body {
   background: #f4f4f4;
-  font-family: 'Raleway', 'Quicksand', sans-serif;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', serif;
+  font-style: normal;
+  font-weight: 400;
   scroll-behavior: smooth;
 }
 

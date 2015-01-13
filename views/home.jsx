@@ -68,7 +68,10 @@ var Root = React.createClass({
             <div className={section.section.className}>
               <span className={section.sectionName.className}>podcasts</span>
               <strong className={section.sectionTitle.className}>can’t make it in person?<br /></strong>
-              <p><a className={section.sectionAnchor.className} href="https://soundcloud.com/rivercharlotte/">listen to our podcast</a></p>
+              <p>listen to our podcast:
+                <a className={section.podcastAnchor.className} href="https://soundcloud.com/rivercharlotte/">soundcloud</a>
+                <a className={section.podcastAnchor.className} href="https://itunes.apple.com/us/podcast/river-church-charlotte-podcast/id559791603?mt=2">iTunes</a>
+              </p>
             </div>
             <div className={section.lastSection.className}>
               <span className={section.sectionName.className}>music</span>
