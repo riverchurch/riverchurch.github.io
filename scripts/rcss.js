@@ -7,7 +7,10 @@ var normalize = fs.readFileSync(path.join(ROOT, 'normalize.css'));
 var base = fs.readFileSync(path.join(ROOT, 'base.css'));
 
 require('mkdirp')(path.join(__dirname, '..', 'public', 'css'));
-fs.watch(ROOT, {}, buildStyles);
+
+if (process.env.NODE_ENV !== 'production') {
+  fs.watch(ROOT, {}, buildStyles);
+}
 
 // fill up RCSS's registry
 function buildStyles() {
