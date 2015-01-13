@@ -3,6 +3,8 @@
 echo "Installing npm dependencies"
 npm install
 
-echo "Compiling static assets to ./dist and watching for changes"
-gulp
+echo "Yup. That was it."
+echo "Now get hacking!"
+echo "  `nodemon`: watch and reload server assets"
+echo "  `webpack`: watch and recompile client assets"
 

@@ -10,6 +10,6 @@ This site is built using [Gulp](http://gulpjs.com) as it's build tool.
 
 ## Hack
 
-* `gulp`: run the asset precompile watch stuff
-* `open dist/index.html`: the compiled view
+* `nodemon`: watch and reload server assets
+* `webpack`: watch and recompile client assets
 
