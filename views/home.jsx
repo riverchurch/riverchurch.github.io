@@ -53,10 +53,10 @@ var Root = React.createClass({
             </li>
             */}
           </ul>
-          <a href="#staff" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
+          <a href="#the-belt" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
           <img className={header.heroImage.className} src="/public/images/hero.png" />
         </section>
-        <div className={layout.theBelt.className}>
+        <div id="the-belt" className={layout.theBelt.className}>
           <section className={layout.sundays.className}>
             <h2>sunday mornings</h2>
             <p className={section.quote.className}>a place to belong and become like jesus</p>

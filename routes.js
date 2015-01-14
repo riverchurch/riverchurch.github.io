@@ -8,6 +8,15 @@ var CONTENT = require('./model/content');
 var extend = require('./lib/extend');
 
 module.exports = function(server) {
+  server.route({
+    method: 'GET',
+    path: '/favicon.ico',
+    handler: {
+      file: function (request) {
+        return path.join('public', 'favicon.ico');
+      }
+    }
+  });
 
   // static file server
   ['css', 'js', 'images'].forEach(function(a) {

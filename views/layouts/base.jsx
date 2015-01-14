@@ -12,6 +12,8 @@ var Layout = React.createClass({
 
           <title>River Church Charlotte</title>
           <meta description="A church in Charlotte amazed by grace, declaring and demonstrating the love of God, the life of faith, and the hope of salvation." />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="stylesheet" href="//cloud.typography.com/6462332/785266/css/fonts.css" />
           <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" />
           <link rel="stylesheet" href="/public/css/all.css" />
