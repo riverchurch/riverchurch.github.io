@@ -86,6 +86,8 @@ var Root = React.createClass({
           </section>
           <section className={layout.kids.className}>
             <h2>river kids</h2>
+            <p>We value children because God values children. We lead with passion and have been trained and equipped to share God’s love in a captivating way.</p>
+            <p><i>We can think of no greater way to love and support you than to love your children.</i></p>
             {kids.map(k => <Kid key={k.name} data={k} />)}
           </section>
         </div>
