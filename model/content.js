@@ -2,19 +2,19 @@ module.exports = {
   kids: [
     {
       name: 'Little Guppies',
-      age: '6 weeks - 24 months',
+      age: '6 weeks — 24 months',
     },
     {
       name: 'Minnows',
-      age: '2 - 3 years',
+      age: '2 — 3-year-olds',
     },
     {
       name: 'Lily Pad',
-      age: '4 years - Kindergarten',
+      age: '4-year-olds — Kindergarten',
     },
     {
       name: 'Splash',
-      age: '1st - 6th grade',
+      age: '1 — 6th-grade',
     }
   ],
   staff: [
@@ -27,6 +27,7 @@ module.exports = {
     { name: 'Sarah Turner',
       title: 'Team Pastor',
       twitter: 'sarahjoyturner',
+      blog: 'http://www.sleepingwiththepastor.com/',
       bio: 'Sarah is one of six kids and extremely proud of her Tennessee roots. She has a passion for women to know their true identity and value. She adores her husband and two sweet girls. She stands in amazement of God’s grace.',
       image: '/public/images/bio-sarah.png',
     },
