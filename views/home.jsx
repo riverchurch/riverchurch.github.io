@@ -53,11 +53,12 @@ var Root = React.createClass({
             </li>
             */}
           </ul>
-          <a href="#the-belt" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
+          <a href="#sunday-morning" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
           <img className={header.heroImage.className} src="/public/images/hero.png" />
         </section>
-        <div id="the-belt" className={layout.theBelt.className}>
-          <section className={layout.sundays.className}>
+
+        <section id="sunday-morning" className={layout.sundays.className}>
+          <div className={layout.sundaysContent.className}>
             <h2>sunday mornings</h2>
             <p className={section.quote.className}>a place to belong and become like jesus</p>
             <div className={section.section.className}>
@@ -83,14 +84,15 @@ var Root = React.createClass({
                 worship of our family.
               </p>
             </div>
-          </section>
-          <section className={layout.kids.className}>
-            <h2>river kids</h2>
-            <p>We value children because God values children. We lead with passion and have been trained and equipped to share God’s love in a captivating way.</p>
-            <p><i>We can think of no greater way to love and support you than to love your children.</i></p>
-            {kids.map(k => <Kid key={k.name} data={k} />)}
-          </section>
-        </div>
+          </div>
+        </section>
+
+        <section className={layout.kids.className}>
+          <h2>river kids</h2>
+          <p>We value children because God values children. We lead with passion and have been trained and equipped to share God’s love in a captivating way.</p>
+          <p><i>We can think of no greater way to love and support you than to love your children.</i></p>
+          {kids.map(k => <Kid key={k.name} data={k} />)}
+        </section>
 
         <section id="staff" className={layout.staff.className}>
           {staff.map(s => <Staff key={s.twitter} data={s} />)}

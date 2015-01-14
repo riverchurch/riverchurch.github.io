@@ -8,26 +8,16 @@ var quote = {
   fontStyle: 'italic',
   borderLeft: '4px solid #999',
   padding: '0 0 0 0.5em',
-  ':before': {
-    fontSize: '1.5em',
-    lineHeight: 0.666,
-    position: 'relative',
-    top: '0.1666em',
-    verticalAlign: 'bottom',
-    content: '“',
-    paddingRight: '0.1111em',
-  },
-  ':after': {
-    fontSize: '1.5em',
-    lineHeight: 0.666,
-    position: 'relative',
-    top: '0.1666em',
-    verticalAlign: 'bottom',
-    content: '”',
-    paddingLeft: '0.1111em',
-  },
   '@media screen and (min-width: 601px)': {
+    borderLeft: '0',
     color: '#fff',
+    fontSize: '4em',
+    position: 'absolute',
+    left: '-220%',
+    width: '190%',
+    margin: 0,
+    top: '43%',
+    textAlign: 'right',
   }
 };
 
@@ -43,9 +33,11 @@ var lastSection = RCSS.cascade(section, {
 var sectionAnchor = {
   color: '#002759',
   textDecoration: 'none',
+  /*
   '@media screen and (min-width: 601px)': {
     color: '#fff',
   },
+  */
 };
 
 var podcastAnchor = RCSS.cascade(sectionAnchor, {
@@ -65,9 +57,6 @@ var sectionName = {
   marginBottom: '0.333em',
   ':after': {
     content: ':',
-  },
-  '@media (min-width: 600px)': {
-    color: '#eee',
   },
 };
 

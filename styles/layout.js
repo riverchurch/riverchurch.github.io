@@ -13,32 +13,28 @@ var kidsBlock = RCSS.cascade(base, {
     display: 'inline-block',
     padding: '2em 5%',
     verticalAlign: 'top',
-    flex: '1 1 auto',
     background: 'url(../images/kids.png)',
-    width: '36%',
+    marginLeft: '60%',
+    width: '40%',
   }
 });
 
 var sundaysBlock = RCSS.cascade(base, {
   '@media screen and (min-width: 600px)': {
     backgroundSize: 'cover',
-    display: 'inline-block',
     padding: '2em 5%',
-    verticalAlign: 'top',
-    flex: '2 2 auto',
-    background: 'url(../images/kids.png)',
     background: 'url(../images/sunday.png)',
     marginRight: '4%',
     width: '60%',
   }
 });
 
-var theBelt = {
+var sundaysContent = {
   '@media screen and (min-width: 600px)': {
-    display: 'flex',
-    color: '#fff',
-    maxWidth: '1400px',
-    padding: '4%',
+    position: 'relative',
+    left: '120%',
+    width: '60%',
+    color: '#000',
   }
 };
 
@@ -61,7 +57,7 @@ var contact = {
 module.exports = {
   kids: RCSS.registerClass(kidsBlock),
   sundays: RCSS.registerClass(sundaysBlock),
-  theBelt: RCSS.registerClass(theBelt),
+  sundaysContent: RCSS.registerClass(sundaysContent),
   staff: RCSS.registerClass(staff),
   contact: RCSS.registerClass(contact),
 };
