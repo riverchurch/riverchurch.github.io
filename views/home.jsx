@@ -41,7 +41,7 @@ var Root = React.createClass({
               <a className={header.bigHitterButton.className} href="http://pushpay.com/pay/riverchurchcharlotte">
                 <img style={{width: 50, height: 50}} src="/public/images/icon-pushpay.svg" className={header.bigHitterIcon.className} />
                 <span className={header.bigHitterTitle.className}>give online</span>
-                <span className={header.bigHitterText.className}>powered by PushPay</span>
+                <span className={header.bigHitterText.className}>powered by Pushpay</span>
               </a>
             </li>
             {/*

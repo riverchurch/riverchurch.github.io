@@ -11,7 +11,7 @@ var Layout = React.createClass({
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
           <title>River Church Charlotte</title>
-          <meta description="A church in Charlotte amazed by grace, declaring and demonstrating the love of God, the life of faith, and the hope of salvation." />
+          <meta description="A place to belong and become like Jesus. Sunday at 10:00 am." />
           <link rel="icon" href="/favicon.ico" />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="stylesheet" href="//cloud.typography.com/6462332/785266/css/fonts.css" />
