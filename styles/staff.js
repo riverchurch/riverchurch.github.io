@@ -32,7 +32,7 @@ var mod = {
 };
 
 var contentContainer = {
-  background: 'rgba(0, 0, 0, 0.4)',
+  background: 'rgba(65, 160, 148, 0.6)',
   padding: '1em 0 0.5em',
   position: 'absolute',
   left: 0,
@@ -60,6 +60,7 @@ var socialMedia = RCSS.cascade(CHILD_BASE, {
   zIndex: 6,
   '@media screen and (max-width: 600px)': {
     backgroundColor: 'transparent',
+    fontSize: '0.875em',
   },
 });
 

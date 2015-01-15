@@ -33,8 +33,8 @@ var Root = React.createClass({
             <li className={header.bigHitterItem.className}>
               <a className={header.bigHitterButton.className} href="https://www.google.com/maps/preview?q=mallard+creek+rec+center&ie=utf-8&ei=e6flu-kxa8xmsaswwydqdq&ved=0cagq_auoaq">
                 <i className={header.bigHitterIcon.className + ' ion-map'}></i>
-                <span className={header.bigHitterTitle.className}>mallard creek rec center</span>
-                <span className={header.bigHitterText.className}>worship at 10:00 am</span>
+                <span className={header.bigHitterTitle.className}>sunday at 10 am</span>
+                <span className={header.bigHitterText.className}>mallard creek rec center</span>
               </a>
             </li>
             <li className={header.bigHitterItem.className}>

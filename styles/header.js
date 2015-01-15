@@ -16,7 +16,7 @@ var hero = {
   position: 'relative',
   textAlign: 'center',
   zIndex: '0',
-  '@media screen and (max-height: 767px)': {
+  '@media screen and (max-width: 766px)': {
     height: 'auto',
   },
 };
@@ -55,7 +55,7 @@ var bigHitterList = {
   listStyle: 'none',
   margin: '20% 0 0',
   padding: '0',
-  '@media screen and (min-width: 600px)': {
+  '@media screen and (min-width: 767px)': {
     position: 'absolute',
     bottom: 0,
     left: 0,
@@ -75,7 +75,10 @@ var bigHitterItem = {
   display: 'block',
   textAlign: 'left',
   padding: '0.5em 0',
-  '@media screen and (min-width: 600px)': {
+  '@media screen and (max-width: 766px)': {
+    clear: 'left',
+  },
+  '@media screen and (min-width: 767px)': {
     flex: 1,
     textAlign: 'center',
     verticalAlign: 'top',
@@ -83,7 +86,7 @@ var bigHitterItem = {
 };
 
 var bigHitterIcon = {
-  fontSize: '2.25em',
+  fontSize: '3.25em',
   float: 'left',
   margin: '0 0.25em 0.25em 0',
 };
@@ -91,30 +94,31 @@ var bigHitterIcon = {
 var bigHitterText = {
   color: '#b4b4b4',
   display: 'block',
-  fontSize: '1em',
-  '@media screen and (min-width: 600px)': {
+  fontSize: '0.75em',
+  '@media screen and (min-width: 767px)': {
     color: '#137771',
   },
-  '@media screen and (max-width: 600px)': {
+  '@media screen and (max-width: 766px)': {
     color: '#fff',
   },
 };
 
-var bigHitterTitle = RCSS.cascade({
+var bigHitterTitle = RCSS.cascade(bigHitterText, {
   color: '#fff',
   fontSize: '1.333em',
-  '@media screen and (min-width: 600px)': {
+  '@media screen and (min-width: 767px)': {
     color: '#137771',
     fontSize: '1.1666em',
   }
-}, bigHitterText);
+});
 
 var bigHitterButton = {
   color: '#fff',
   textDecoration: 'none',
- '@media screen and (min-width: 600px)': {
+ '@media screen and (min-width: 767px)': {
     display: 'inline-block',
     textAlign: 'left',
+    width: '80%',
   },
 };
 
