@@ -22,11 +22,16 @@ var quote = {
 };
 
 var kidsPull = {
-  color: '#fff',
-  position: 'absolute',
-  right: '-120%',
-  top: 0,
-  width: '70%',
+  '@media screen and (max-width: 600px)': {
+    marginTop: '2em',
+  },
+  '@media screen and (min-width: 601px)': {
+    color: '#fff',
+    position: 'absolute',
+    right: '-120%',
+    top: 0,
+    width: '70%',
+  }
 };
 
 var section = {
