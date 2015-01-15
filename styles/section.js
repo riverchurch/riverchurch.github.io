@@ -54,8 +54,9 @@ var sectionAnchor = {
 };
 
 var podcastAnchor = RCSS.cascade(sectionAnchor, {
-  marginLeft: '1em',
-  display: 'block',
+  display: 'inline-block',
+  marginRight: '1em',
+  verticalAlign: 'middle',
 });
 
 var sectionTitle = {};

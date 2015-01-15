@@ -62,16 +62,19 @@ var Root = React.createClass({
             <h2>sunday mornings</h2>
             <p className={section.quote.className}>a place to belong and become like jesus</p>
             <div className={section.section.className}>
-              <em className={section.sectionName.className}>last sunday</em>
+              <em className={section.sectionName.className}>current series</em>
               <strong className={section.sectionTitle.className}>{sunday.title}<br /></strong>
               <p>{sunday.description}</p>
             </div>
             <div className={section.section.className}>
-              <span className={section.sectionName.className}>podcasts</span>
-              <strong className={section.sectionTitle.className}>can’t make it in person?<br /></strong>
-              <p>listen to our podcast:
-                <a className={section.podcastAnchor.className} href="https://soundcloud.com/rivercharlotte/">soundcloud</a>
-                <a className={section.podcastAnchor.className} href="https://itunes.apple.com/us/podcast/river-church-charlotte-podcast/id559791603?mt=2">iTunes</a>
+              <span className={section.sectionName.className}>listen to our podcast</span>
+              <p>
+                <a className={section.podcastAnchor.className} href="https://soundcloud.com/rivercharlotte/">
+                  <img src="/public/images/icon-soundcloud.svg" width="40px" alt="soundcloud" />
+                </a>
+                <a className={section.podcastAnchor.className} href="https://itunes.apple.com/us/podcast/river-church-charlotte-podcast/id559791603?mt=2">
+                  <img src="/public/images/icon-itunes.svg" width="40px" alt="iTunes" />
+                </a>
               </p>
             </div>
             <div className={section.lastSection.className}>
