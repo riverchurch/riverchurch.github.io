@@ -1,4 +1,5 @@
 var RCSS = require('rcss');
+var COLOR = '#1dc7ba';
 
 // #connect-with-us label,
 // #connect-with-us input,
@@ -66,20 +67,22 @@ var lastErrorMessage = RCSS.cascade(errorMessage, {
 });
 
 var button = {
-  background: '#fafafa',
-  border: 0,
-  borderTop: '1px solid #e9e9e9',
-  borderBottom: '2px solid #444',
-  color: '#000',
-  marginTop: '1.333em',
+  background: 'transparent',
+  border: '2px solid ' + COLOR,
+  borderRadius: '0.5em',
+  color: COLOR,
   fontSize: '1.333em',
+  marginTop: '1.333em',
   padding: '0.5em 1.5em',
-  /*
-    &:hover,
-    &:focus
-      background: #E6511E
-      border-bottom-color: #AE3911
-    */
+  transition: 'all 0.3s ease-in',
+  ':hover': {
+    background: COLOR,
+    color: '#fff',
+  },
+  ':focus': {
+    background: COLOR,
+    color: '#fff',
+  },
 };
 
 // var SELECTORS = [fieldset, label, label__hasContent, textfield, button];

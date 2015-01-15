@@ -64,6 +64,10 @@ var contact = {
   padding: '3em 10% 3em',
 };
 
+var contactTitle = {
+  color: '#1dc7ba',
+};
+
 module.exports = {
   kids: RCSS.registerClass(kidsBlock),
   kidsContent: RCSS.registerClass(kidsContent),
@@ -71,4 +75,5 @@ module.exports = {
   sundaysContent: RCSS.registerClass(sundaysContent),
   staff: RCSS.registerClass(staff),
   contact: RCSS.registerClass(contact),
+  contactTitle: RCSS.registerClass(contactTitle),
 };

@@ -112,7 +112,7 @@ var Root = React.createClass({
         </section>
 
         <section id="connect-with-us" className={layout.contact.className}>
-          <h1>connect with us</h1>
+          <h1 className={layout.contactTitle.className}>connect with us</h1>
           <ContactForm />
         </section>
         <script src='https://www.google.com/recaptcha/api.js' async></script>

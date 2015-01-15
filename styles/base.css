@@ -21,3 +21,18 @@ ul {
   margin-top: 2em;
   min-height: 78px;
 }
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  color: #888;
+}
+
+::-moz-placeholder {
+  font-style: italic;
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  font-style: italic;
+  color: #888;
+}

@@ -55,11 +55,9 @@ var socialMedia = RCSS.cascade(CHILD_BASE, {
   left: 0,
   height: '2em',
   width: '2em',
-  background: '#41a094',
   overflow: 'hidden',
   zIndex: 6,
   '@media screen and (max-width: 600px)': {
-    backgroundColor: 'transparent',
     fontSize: '0.875em',
   },
 });
