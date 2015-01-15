@@ -14,11 +14,19 @@ var quote = {
     fontSize: '4em',
     position: 'absolute',
     left: '-220%',
-    width: '190%',
+    width: '180%',
     margin: 0,
     top: '43%',
     textAlign: 'right',
   }
+};
+
+var kidsPull = {
+  color: '#fff',
+  position: 'absolute',
+  right: '-120%',
+  top: 0,
+  width: '70%',
 };
 
 var section = {
@@ -60,11 +68,17 @@ var sectionName = {
   },
 };
 
+var kidsList = {
+  margin: '0.33em 0 0.33em 1em',
+};
+
 //var SELECTORS = [quote, section, lastSection, sectionAnchor, podcastAnchor,
 // sectionTitle, sectionName];
 
 module.exports = {
   quote: RCSS.registerClass(quote),
+  kidsPull: RCSS.registerClass(kidsPull),
+  kidsList: RCSS.registerClass(kidsList),
   section: RCSS.registerClass(section),
   lastSection: RCSS.registerClass(lastSection),
   sectionAnchor: RCSS.registerClass(sectionAnchor),

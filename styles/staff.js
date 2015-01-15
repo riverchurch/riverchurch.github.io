@@ -22,7 +22,7 @@ var mod = {
     width: '50%',
   },
   '@media screen and (min-width: 601px)': {
-    margin: '0 2.5%',
+    margin: '2.5%',
     width: '45%',
   },
   '@media screen and (min-width: 1000px)': {

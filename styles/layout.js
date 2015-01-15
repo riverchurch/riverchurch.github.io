@@ -19,6 +19,15 @@ var kidsBlock = RCSS.cascade(base, {
   }
 });
 
+var kidsContent = {
+  '@media screen and (min-width: 600px)': {
+    position: 'relative',
+    right: '180%',
+    width: '120%',
+    color: '#000',
+  }
+};
+
 var sundaysBlock = RCSS.cascade(base, {
   '@media screen and (min-width: 600px)': {
     backgroundSize: 'cover',
@@ -33,7 +42,7 @@ var sundaysContent = {
   '@media screen and (min-width: 600px)': {
     position: 'relative',
     left: '120%',
-    width: '60%',
+    width: '50%',
     color: '#000',
   }
 };
@@ -43,19 +52,21 @@ var staff = {
   padding: 0,
   overflow: 'hidden',
   '@media screen and (min-width: 601px)': {
-    width: '90%',
-  },
-  '@media screen and (min-width: 1000px)': {
-    width: '90%',
+    marginTop: '1.5em',
+    padding: '1.5em',
+    borderTop: '10px solid rgba(157, 90, 75, 0.06)',
   },
 };
 
 var contact = {
-  padding: '3em 1.333em 3em',
-}
+  margin: '0 auto',
+  maxWidth: '800px',
+  padding: '3em 10% 3em',
+};
 
 module.exports = {
   kids: RCSS.registerClass(kidsBlock),
+  kidsContent: RCSS.registerClass(kidsContent),
   sundays: RCSS.registerClass(sundaysBlock),
   sundaysContent: RCSS.registerClass(sundaysContent),
   staff: RCSS.registerClass(staff),

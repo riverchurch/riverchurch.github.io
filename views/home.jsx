@@ -88,10 +88,23 @@ var Root = React.createClass({
         </section>
 
         <section className={layout.kids.className}>
-          <h2>river kids</h2>
-          <p>We value children because God values children. We lead with passion and have been trained and equipped to share God’s love in a captivating way.</p>
-          <p><i>We can think of no greater way to love and support you than to love your children.</i></p>
-          {kids.map(k => <Kid key={k.name} data={k} />)}
+          <div className={layout.kidsContent.className}>
+            <h2>river kids</h2>
+            <p>We value children because God values children.</p>
+            <p>We lead with passion and have been trained and equipped to share God’s love in a captivating way.</p>
+            {/*<p><i>We can think of no greater way to love and support you than to love your children.</i></p>*/}
+            <p>At River Kids we seek to…</p>
+            <ul>
+              <li className={section.kidsList.className}>Train up a generation who knows their Father</li>
+              <li className={section.kidsList.className}>Instill a love for King Jesus</li>
+              <li className={section.kidsList.className}>Teach our kids how to hear from Holy Spirit</li>
+              <li className={section.kidsList.className}>Empower a generation to walk in the freedom and life of the Kingdom</li>
+              <li className={section.kidsList.className}>Create a safe place where love rules and church is fun!</li>
+            </ul>
+            <div className={section.kidsPull.className}>
+              {kids.map(k => <Kid key={k.name} data={k} />)}
+            </div>
+          </div>
         </section>
 
         <section id="staff" className={layout.staff.className}>

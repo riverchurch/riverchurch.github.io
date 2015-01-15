@@ -1,8 +1,11 @@
 var RCSS = require('rcss');
 
 var mod = {
-  borderBottom: '1px solid #fff',
+  borderBottom: '1px solid #ccc',
   padding: '0.75em 0',
+  '@media screen and (min-width: 601px)': {
+    borderBottomColor: '#fff',
+  },
 };
 
 var name = {
@@ -10,9 +13,6 @@ var name = {
   display: 'block',
   fontSize: '1.333em',
   fontWeight: 'bold',
-  '@media (min-width: 600px)': {
-    color: '#eee',
-  },
 };
 
 var age = {
@@ -23,9 +23,6 @@ var age = {
   fontStyle: 'italic',
   fontWeight: 'bold',
   marginLeft: '0.1111em',
-  '@media (min-width: 600px)': {
-    color: '#eee',
-  },
 };
 
 module.exports = {

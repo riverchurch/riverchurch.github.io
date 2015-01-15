@@ -91,6 +91,7 @@ var bigHitterIcon = {
 var bigHitterText = {
   color: '#b4b4b4',
   display: 'block',
+  fontSize: '1em',
   '@media screen and (min-width: 600px)': {
     color: '#137771',
   },
@@ -104,6 +105,7 @@ var bigHitterTitle = RCSS.cascade({
   fontSize: '1.333em',
   '@media screen and (min-width: 600px)': {
     color: '#137771',
+    fontSize: '1.1666em',
   }
 }, bigHitterText);
 
