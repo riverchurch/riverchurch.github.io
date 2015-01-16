@@ -54,7 +54,7 @@ var Root = React.createClass({
             */}
           </ul>
           <a href="#sunday-morning" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
-          <img className={header.heroImage.className} src="/public/images/hero.png" />
+          <img className={header.heroImage.className} src="/public/images/hero.jpg" />
         </section>
 
         <section id="sunday-morning" className={layout.sundays.className}>

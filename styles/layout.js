@@ -9,11 +9,11 @@ var base = {
 
 var kidsBlock = RCSS.cascade(base, {
   '@media screen and (min-width: 600px)': {
-    backgroundSize: 'cover',
     display: 'inline-block',
     padding: '2em 5%',
     verticalAlign: 'top',
-    background: 'url(../images/kids.png)',
+    background: 'url(../images/kids.jpg)',
+    backgroundSize: 'cover',
     marginLeft: '60%',
     width: '40%',
   }
@@ -30,9 +30,9 @@ var kidsContent = {
 
 var sundaysBlock = RCSS.cascade(base, {
   '@media screen and (min-width: 600px)': {
+    background: 'url(../images/sunday.jpg)',
     backgroundSize: 'cover',
     padding: '2em 5%',
-    background: 'url(../images/sunday.png)',
     marginRight: '4%',
     width: '60%',
   }

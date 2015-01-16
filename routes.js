@@ -97,6 +97,7 @@ module.exports = function(server) {
 
         var Mailer = request.server.plugins.mailer;
         if (Mailer) {
+          server.log('info', 'Sending mail', data);
           Mailer.sendMail(data, function(err, info) {
             if (err) server.log('error', err);
             else server.log('info', 'Mail sent.', info);
