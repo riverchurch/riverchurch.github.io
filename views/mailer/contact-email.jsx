@@ -30,7 +30,7 @@ var ContactEmail = React.createClass({
     return (
       <div>
         <h1>{name}</h1>
-        <strong>RiverChurchCharlotte.com Contact Form</strong>
+        <strong>RiverCharlotte.com Contact Form</strong>
         <div style={divider}></div>
         <table style={table}>
           <tbody>

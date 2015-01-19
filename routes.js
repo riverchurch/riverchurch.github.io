@@ -88,7 +88,7 @@ module.exports = function(server) {
         var data = {
           from: payload.email,
           to: process.env.MAILER_TO,
-          subject: 'RiverChurch.com Contact Form',
+          subject: 'RiverCharlotte.com Contact Form',
           html: {
             path: 'contact-email.jsx'
           },
