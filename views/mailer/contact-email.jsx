@@ -10,7 +10,7 @@ var label = {
 };
 
 var table ={
-  width: '100%'
+  width: '100%',
   borderBottom: '1px solid #eee',
   lineHeight: '135%',
   cellpadding: '0',
@@ -56,6 +56,7 @@ var ContactEmail = React.createClass({
             </tr>
           </tbody>
         </table>
+      </div>
     );
   }
 });
