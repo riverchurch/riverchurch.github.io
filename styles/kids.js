@@ -1,32 +1,34 @@
 var RCSS = require('rcss');
 
-var mod = {
-  borderBottom: '1px solid #ccc',
-  padding: '0.75em 0',
+var header = {
+  color: '#fff',
+  margin: 0,
+  padding: '0.666em 1.5rem',
   '@media screen and (min-width: 601px)': {
-    borderBottomColor: '#fff',
+    background: '#33b2af',
+    fontSize: '1em',
   },
 };
 
-var name = {
-  color: '#111',
-  display: 'block',
-  fontSize: '1.333em',
-  fontWeight: 'bold',
+var quote = {
+  '@media screen and (max-width: 600px)': {
+    marginTop: '2em',
+  },
+  '@media screen and (min-width: 601px)': {
+    color: '#fff',
+    position: 'absolute',
+    right: '-120%',
+    top: 0,
+    width: '70%',
+  }
 };
 
-var age = {
-  color: '#555',
-  display: 'block',
-  fontFamily: 'serif',
-  fontSize: '0.916666em',
-  fontStyle: 'italic',
-  fontWeight: 'bold',
-  marginLeft: '0.1111em',
+var list = {
+  margin: '0.33em 0 0.33em 1em',
 };
 
 module.exports = {
-  mod: RCSS.registerClass(mod),
-  name: RCSS.registerClass(name),
-  age: RCSS.registerClass(age),
+  header: RCSS.registerClass(header),
+  list: RCSS.registerClass(list),
+  quote: RCSS.registerClass(quote),
 };

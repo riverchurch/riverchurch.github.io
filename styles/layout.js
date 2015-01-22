@@ -35,7 +35,7 @@ var staff = {
   '@media screen and (min-width: 601px)': {
     marginTop: '1.5em',
     padding: '1.5em',
-    borderTop: '10px solid rgba(157, 90, 75, 0.06)',
+    background: 'rgba(157, 90, 75, 0.06)',
   },
 };
 

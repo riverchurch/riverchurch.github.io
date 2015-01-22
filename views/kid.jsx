@@ -1,5 +1,5 @@
 var React = require('react');
-var style = require('../styles/kids');
+var style = require('../styles/kid');
 
 var Kid = React.createClass({
   render() {
