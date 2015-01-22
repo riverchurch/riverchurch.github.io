@@ -3,6 +3,7 @@ var BaseLayout = require('./layouts/base.jsx');
 var Kid = require('./kid.jsx');
 var Staff = require('./staff.jsx');
 var ContactForm = require('./contact.jsx');
+var SundayMorning = require('./sunday.jsx');
 var layout = require('../styles/layout');
 var header = require('../styles/header');
 var section = require('../styles/section');
@@ -57,38 +58,7 @@ var Root = React.createClass({
           <img className={header.heroImage.className} src="/public/images/hero.jpg" />
         </section>
 
-        <section id="sunday-morning" className={layout.sundays.className}>
-          <div className={layout.sundaysContent.className}>
-            <h2>sunday mornings</h2>
-            <p className={section.quote.className}>a place to belong and become like jesus</p>
-            <div className={section.section.className}>
-              <em className={section.sectionName.className}>current series</em>
-              <strong className={section.sectionTitle.className}>{sunday.title}<br /></strong>
-              <p>{sunday.description}</p>
-            </div>
-            <div className={section.section.className}>
-              <span className={section.sectionName.className}>listen to our podcast</span>
-              <p>
-                <a className={section.podcastAnchor.className} href="https://soundcloud.com/rivercharlotte/">
-                  <img src="/public/images/icon-soundcloud.svg" width="40px" alt="soundcloud" />
-                </a>
-                <a className={section.podcastAnchor.className} href="https://itunes.apple.com/us/podcast/river-church-charlotte-podcast/id559791603?mt=2">
-                  <img src="/public/images/icon-itunes.svg" width="40px" alt="iTunes" />
-                </a>
-              </p>
-            </div>
-            <div className={section.lastSection.className}>
-              <span className={section.sectionName.className}>music</span>
-              <strong className={section.sectionTitle.className}>
-                <a className={section.sectionAnchor.className} href="http://www.deepwaterworship.com">river church live<br /></a>
-              </strong>
-              <p>
-                preview our album, <em>1 hope</em>, to experience the living
-                worship of our family.
-              </p>
-            </div>
-          </div>
-        </section>
+        <SundayMorning title={sunday.title} description={sunday.description} />
 
         <section className={layout.kids.className}>
           <div className={layout.kidsContent.className}>

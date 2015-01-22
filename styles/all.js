@@ -5,3 +5,4 @@ require('./kids');
 require('./layout');
 require('./section');
 require('./staff');
+require('./sunday');

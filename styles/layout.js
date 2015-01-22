@@ -28,25 +28,6 @@ var kidsContent = {
   }
 };
 
-var sundaysBlock = RCSS.cascade(base, {
-  '@media screen and (min-width: 600px)': {
-    background: 'url(../images/sunday.jpg)',
-    backgroundSize: 'cover',
-    padding: '2em 5%',
-    marginRight: '4%',
-    width: '60%',
-  }
-});
-
-var sundaysContent = {
-  '@media screen and (min-width: 600px)': {
-    position: 'relative',
-    left: '120%',
-    width: '50%',
-    color: '#000',
-  }
-};
-
 var staff = {
   margin: '0 auto',
   padding: 0,
@@ -71,8 +52,6 @@ var contactTitle = {
 module.exports = {
   kids: RCSS.registerClass(kidsBlock),
   kidsContent: RCSS.registerClass(kidsContent),
-  sundays: RCSS.registerClass(sundaysBlock),
-  sundaysContent: RCSS.registerClass(sundaysContent),
   staff: RCSS.registerClass(staff),
   contact: RCSS.registerClass(contact),
   contactTitle: RCSS.registerClass(contactTitle),
