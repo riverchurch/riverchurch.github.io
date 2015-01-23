@@ -26,7 +26,9 @@ var Kids = React.createClass({
               <li className={kids.list.className}>Create a safe place where love rules and church is fun!</li>
             </ul>
             */}
-            {this.props.kids.map(k => <Kid key={k.name} data={k} />)}
+            <div className={kids.list.className}>
+              {this.props.kids.map(k => <Kid key={k.name} data={k} />)}
+            </div>
           </div>
         </div>
         <div className={kids.image.className}></div>

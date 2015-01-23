@@ -5,12 +5,14 @@ var CHILD_BASE = {
   display: 'block',
   position: 'relative',
   zIndex: 5,
+  '@media screen and (max-width: 600px)': {
+    fontSize: '0.75em',
+  },
 };
 
 var mod = {
   display: 'inline-block',
   margin: 0,
-  minHeight: '340px',
   padding: '30% 0.41666em 1.5em',
   position: 'relative',
   textAlign: 'center',
@@ -18,11 +20,12 @@ var mod = {
   overflow: 'hidden',
   verticalAlign: 'top',
   '@media screen and (max-width: 600px)': {
-    paddingTop: '30%',
+    minHeight: '300px',
     width: '50%',
   },
   '@media screen and (min-width: 601px)': {
     margin: '2.5%',
+    minHeight: '340px',
     width: '45%',
   },
   '@media screen and (min-width: 1000px)': {

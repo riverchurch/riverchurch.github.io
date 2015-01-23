@@ -16,6 +16,9 @@ var hero = {
   position: 'relative',
   textAlign: 'center',
   zIndex: '0',
+  '@media screen and (max-width: 600px)': {
+    textAlign: 'left',
+  },
   '@media screen and (max-width: 766px)': {
     height: 'auto',
   },
@@ -23,7 +26,7 @@ var hero = {
 
 var heroTitle = {
   fontSize: '3em',
-  margin: '10% auto 0 auto',
+  margin: '0.1em auto 0 auto',
   opacity: '0.95',
   textShadow: '0 0 2px rgba(0, 0, 0, 0.333)',
   textTransform: 'uppercase',
@@ -31,13 +34,11 @@ var heroTitle = {
 
 var heroImage = {
   position: 'absolute',
-  top: 0,
-  left: 0,
   right: 0,
   bottom: 0,
   minWidth: '100%',
   minHeight: '100%',
-  maxWidth: '100%',
+  maxWidth: '200%',
   transition: 'opacity 1s ease-in',
   zIndex: '-1',
 }

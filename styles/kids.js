@@ -1,6 +1,9 @@
 var RCSS = require('rcss');
 
 var innerContent = {
+  '@media screen and (max-width: 600px)': {
+    padding: '0 1.5rem',
+  },
   '@media screen and (min-width: 601px)': {
     maxWidth: '400px',
     paddingLeft: '10%',
@@ -10,12 +13,16 @@ var innerContent = {
 };
 
 var header = {
+  background: '#33b2af',
   color: '#fff',
+  fontSize: '1em',
   margin: 0,
   padding: '0.666em 1.5rem',
+  '@media screen and (max-width: 600px)': {
+    borderBottom: '3px solid #229592',
+    marginTop: '1.5em',
+  },
   '@media screen and (min-width: 601px)': {
-    background: '#33b2af',
-    fontSize: '1em',
     paddingLeft: '10%',
     textAlign: 'left',
   },
@@ -38,7 +45,9 @@ var quote = {
 };
 
 var list = {
-  margin: '0.33em 0 0.33em 1em',
+  '@media screen and (max-width: 600px)': {
+    marginBottom: '5em',
+  },
 };
 
 var block = {};
