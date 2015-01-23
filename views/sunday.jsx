@@ -8,7 +8,7 @@ var SundayMorning = React.createClass({
     return (
       <section id="sunday-morning">
         <div className={sunday.image.className}>
-          <p className={sunday.quote.className}>a place to belong and become like jesus</p>
+          <p className={sunday.quote.className}>a place to belong and become like Jesus</p>
         </div>
         <div className={sunday.content.className}>
           <h2 className={sunday.header.className}>Sunday Mornings</h2>
