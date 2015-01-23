@@ -35,7 +35,7 @@ var header = {
 };
 
 var quote = {
-  color: '#262626',
+  color: '#363636',
   fontFamily: 'serif',
   fontSize: '1.333em',
   fontWeight: 'bold',

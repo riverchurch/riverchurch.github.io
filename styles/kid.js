@@ -1,11 +1,8 @@
 var RCSS = require('rcss');
 
 var mod = {
-  borderBottom: '1px solid #ccc',
+  borderBottom: '1px solid #3b3b3b',
   padding: '0.75em 0',
-  '@media screen and (min-width: 601px)': {
-    borderBottomColor: '#fff',
-  },
 };
 
 var name = {

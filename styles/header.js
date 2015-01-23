@@ -37,6 +37,7 @@ var heroImage = {
   bottom: 0,
   minWidth: '100%',
   minHeight: '100%',
+  maxWidth: '100%',
   transition: 'opacity 1s ease-in',
   zIndex: '-1',
 }
