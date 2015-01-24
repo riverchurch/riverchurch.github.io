@@ -1,6 +1,6 @@
 var React = require('react');
 var css = require('../styles/contact');
-var Floater = require('../components/floater.jsx');
+var Floater = require('./components/floater/index.jsx');
 
 // require window.fetch polyfill
 if (typeof window !== 'undefined') {

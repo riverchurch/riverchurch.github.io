@@ -38,7 +38,7 @@ module.exports = function(server) {
 
   server.route({
     method: 'GET',
-    path:'/', 
+    path:'/',
     handler: function(request, reply) {
       // TODO: contextify each response: https://github.com/brianmcd/contextify
       service.get().then(function(sunday) {

@@ -1,5 +1,5 @@
 var React = require('react');
-var css = require('../styles/contact');
+var css = require('./styles');
 
 var getLabelSelector = v => v ? 'label__hasContent' : 'label';
 
