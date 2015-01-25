@@ -6,16 +6,14 @@ var header = require('../styles/header');
 var section = require('../styles/section');
 var footer = require('../styles/footer');
 var ConnectForm = require('./connect-form.jsx');
+var css = require('../styles/connect-card');
 
 var Root = React.createClass({
   render() {
     return (
       <BaseLayout module="connect">
-        <Logo fill="#555" />
-        <section id="connect-with-us" className={layout.contact.className}>
-          <h1>connect with us</h1>
-          <ConnectForm />
-        </section>
+        <Logo fill="#555" className={css.logo.className} />
+        <ConnectForm className={layout.contact.className} />
       </BaseLayout>
     );
   }

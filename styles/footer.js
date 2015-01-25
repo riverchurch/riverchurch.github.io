@@ -2,6 +2,7 @@ var RCSS = require('rcss');
 
 var footer = {
   color: '#888',
+  fontSize: '13px',
   textAlign: 'center',
 };
 

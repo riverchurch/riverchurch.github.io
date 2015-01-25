@@ -4,9 +4,9 @@ var Logo = React.createClass({
     return {fill: '#fff'}; // #3bb0c9
   },
   render() {
-    var {fill} = this.props;
+    var {fill, className} = this.props;
     return (
-      <svg width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 400 100" enable-background="new 0 0 400 100">
+      <svg className={className} width="200px" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 400 100" enable-background="new 0 0 400 100">
         <g>
           <g>
             <path fill={fill} d="M104.3,43.8v-3.9h-4v24.1h4V54c0-7,4.4-10.2,8.9-10.2h0.9v-4.2l-1.3,0C109.5,39.6,106.4,41.1,104.3,43.8z" />
@@ -66,10 +66,8 @@ var Logo = React.createClass({
             </g>
           </g>
         </g>
-        <rect x="31.7" y="22.3" fill="none" stroke={fill} stroke-width="2" stroke-miterlimit="10" width="54.7" height="55"/>
+        <rect x="31.7" y="22.3" fill="none" stroke={fill} strokeWidth="2" stroke-miterlimit="10" width="54.7" height="55"/>
       </svg>
-
-
     );
   }
 });

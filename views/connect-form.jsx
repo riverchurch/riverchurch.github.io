@@ -1,6 +1,8 @@
 var React = require('react');
 var css = require('../styles/contact');
+var radioCss = require('./components/radio/styles');
 var Floater = require('./components/floater/index.jsx');
+var Radio = require('./components/radio/index.jsx');
 
 // require window.fetch polyfill
 if (typeof window !== 'undefined') {
@@ -8,16 +10,28 @@ if (typeof window !== 'undefined') {
   require('fetch');
 }
 
+var DIVIDER = {margin: '2em 0'};
+
 var toJSON = resp =>  resp.json();
 
 var ContactForm = React.createClass({
   getInitialState() {
     return {
       'full-name': '',
-      'email': '',
+      'street-address': '',
+      'city-state-zip': '',
       'phone-number': '',
+      'life-status': '',
+      'gender': '',
+      'email': '',
+      'birthday': '',
+      'twitter': '',
+      'facebook': '',
+      'instagram': '',
+      'regularity': '',
       'prayer': '',
       'whatcha-need': '',
+      'god-is-doing': '',
       'errors': [],
       'completedMessage': '',
     };
@@ -55,44 +69,59 @@ var ContactForm = React.createClass({
     this.setState(o);
   },
 
+  updateRadio(e) {
+    var o = {};
+    var {name, value} = e.target;
+    o[name] = value;
+    if (value === this.state[name]) o[name] = '';
+    this.setState(o);
+  },
+
   render() {
+    var {className} = this.props;
+
     if (this.state.completedMessage) {
       return (
-        <div>{this.state.completedMessage}</div>
+        <div className={className}>{this.state.completedMessage}</div>
       );
     }
 
     return (
-      <form action="/contact" method="post" onSubmit={this.handleSubmit}>
+      <form className={className} action="/contact" method="post" onSubmit={this.handleSubmit}>
         {this.state.errors.map(e => <div key={e}>{e}</div>)}
         <Floater label="full name" onChange={this.updateState} />
         <Floater label="street address" onChange={this.updateState} />
         <Floater label="city, state, zip" onChange={this.updateState} />
         <Floater label="phone number" type="number" id="phone" onChange={this.updateState} />
-        <div>
+        <div className={radioCss.fieldset.className}>
           <label className={css.label__hasContent.className}>Life Status</label>
-          <label htmlFor="life-status--s">
-            <input type="radio" name="life-status" id="life-status--s" onChange={this.updateState} value="single" />
-            <span>Single</span>
-          </label>
-          <label htmlFor="life-status--m">
-            <input type="radio" name="life-status" id="life-status--m" onChange={this.updateState} value="married" />
-            <span>Married</span>
-          </label>
-          <label htmlFor="life-status--sa">
-            <input type="radio" name="life-status" id="life-status--sa" onChange={this.updateState} value="single-again" />
-            <span>Single Again</span>
-          </label>
+          <Radio checked={this.state['life-status'] === 'single'} name="life-status" id="life-status--s" onChange={this.updateRadio} value="single">Single</Radio>
+          <Radio checked={this.state['life-status'] === 'married'}  name="life-status" id="life-status--m" onChange={this.updateRadio} value="married">Married</Radio>
+          <Radio checked={this.state['life-status'] === 'single-again'}  name="life-status" id="life-status--sa" onChange={this.updateRadio} value="single-again">Single Again</Radio>
         </div>
+        <div className={radioCss.fieldset.className}>
+          <label className={css.label__hasContent.className}>Gender</label>
+          <Radio checked={this.state['gender'] === 'male'} name="gender" id="gender--m" onChange={this.updateRadio} value="male">Male</Radio>
+          <Radio checked={this.state['gender'] === 'female'}  name="gender" id="gender--f" onChange={this.updateRadio} value="female">Female</Radio>
+          <Radio checked={this.state['gender'] === 'na'}  name="gender" id="gender--na" onChange={this.updateRadio} value="na">Rather not say</Radio>
+        </div>
+        <div style={DIVIDER}></div>
         <Floater label="email" type="email" onChange={this.updateState} />
-        <Floater label="gender" onChange={this.updateState} />
         <Floater label="birthday" onChange={this.updateState} />
+        <div style={DIVIDER}></div>
         <Floater label="twitter" onChange={this.updateState} />
-        <div style={{margin: '2em 0'}}></div>
         <Floater label="facebook" onChange={this.updateState} />
         <Floater label="instagram" onChange={this.updateState} />
         {/*TODO: kids*/}
-        <div style={{margin: '2em 0'}}></div>
+        <div style={DIVIDER}></div>
+        <div className={radioCss.fieldset.className}>
+          <label className={css.label__hasContent.className}>{' '}</label>
+          <Radio checked={this.state['regularity'] === '1'} name="regularity" id="regularity--1" onChange={this.updateRadio} value="1">This is my first time here</Radio>
+          <Radio checked={this.state['regularity'] === '2'}  name="regularity" id="regularity--2" onChange={this.updateRadio} value="2">This is my second time here</Radio>
+          <Radio checked={this.state['regularity'] === '3'}  name="regularity" id="regularity--3" onChange={this.updateRadio} value="3">This is my third time here</Radio>
+          <Radio checked={this.state['regularity'] === 'home'}  name="regularity" id="regularity--home" onChange={this.updateRadio} value="home">This is my home</Radio>
+        </div>
+        <div style={DIVIDER}></div>
         <Floater input={'textarea'} rows="5" label="how can we pray for you?" id="prayer" onChange={this.updateState} />
         <Floater input={'textarea'} rows="5" label="what is God doing in your life?" id="god-is-doing" onChange={this.updateState} />
         <Floater input={'textarea'} rows="5" label="questions? comments?" id="comments" onChange={this.updateState} />
