@@ -22,6 +22,7 @@ var ContactForm = React.createClass({
       'city-state-zip': '',
       'phone-number': '',
       'life-status': '',
+      'children': [{'full-name': ''}],
       'gender': '',
       'email': '',
       'birthday': '',
@@ -77,6 +78,25 @@ var ContactForm = React.createClass({
     this.setState(o);
   },
 
+  addChild(e) {
+    e.preventDefault();
+    if (this.state.children.every(n => n['full-name'])) {
+      this.setState({
+        children: this.state.children.concat({'full-name': ''})
+      });
+    }
+  },
+
+  updateChild(e, i) {
+    var child = this.state.children[i];
+
+    var o = {};
+    var {name, value} = e.target;
+    console.log('updateChild', i, name, value)
+    child[name] = value;
+    // TODO: immutably update this
+  },
+
   render() {
     var {className} = this.props;
 
@@ -111,7 +131,17 @@ var ContactForm = React.createClass({
         <Floater label="twitter" onChange={this.updateState} />
         <Floater label="facebook" onChange={this.updateState} />
         <Floater label="instagram" onChange={this.updateState} />
-        {/*TODO: kids*/}
+        <div style={DIVIDER}></div>
+
+        {this.state.children.map((k, i) => (
+          <div key={`child-${i}`}>
+            <Floater id="full-name" label="child’s name" onChange={(_) => this.updateChild(_, i)} value={k['full-name']} />
+            <Floater label="birthday" type="date" onChange={(_) => this.updateChild(_, i)} value={k.birthday} />
+              <div style={{margin: '1em 0'}}></div>
+          </div>
+        ))}
+        <button className={css.addChild.className} onClick={this.addChild}>Add another child</button>
+
         <div style={DIVIDER}></div>
         <div className={radioCss.fieldset.className}>
           <label className={css.label__hasContent.className}>{' '}</label>

@@ -85,6 +85,14 @@ var button = {
   },
 };
 
+var addChild = {
+  border: 0,
+  background: 'transparent',
+  color: '#119fbe',
+  fontSize: '0.91666em',
+  textDecoration: 'underline',
+};
+
 // var SELECTORS = [fieldset, label, label__hasContent, textfield, button];
 
 module.exports = {
@@ -96,4 +104,5 @@ module.exports = {
   lastErrorMessage: RCSS.registerClass(lastErrorMessage),
   textfield: RCSS.registerClass(textfield),
   button: RCSS.registerClass(button),
+  addChild: RCSS.registerClass(addChild),
 };
