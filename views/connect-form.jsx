@@ -103,11 +103,10 @@ var ContactForm = React.createClass({
           <label className={css.label__hasContent.className}>Gender</label>
           <Radio checked={this.state['gender'] === 'male'} name="gender" id="gender--m" onChange={this.updateRadio} value="male">Male</Radio>
           <Radio checked={this.state['gender'] === 'female'}  name="gender" id="gender--f" onChange={this.updateRadio} value="female">Female</Radio>
-          <Radio checked={this.state['gender'] === 'na'}  name="gender" id="gender--na" onChange={this.updateRadio} value="na">Rather not say</Radio>
         </div>
         <div style={DIVIDER}></div>
         <Floater label="email" type="email" onChange={this.updateState} />
-        <Floater label="birthday" onChange={this.updateState} />
+        <Floater label="birthday" type="date" onChange={this.updateState} />
         <div style={DIVIDER}></div>
         <Floater label="twitter" onChange={this.updateState} />
         <Floater label="facebook" onChange={this.updateState} />
@@ -119,12 +118,12 @@ var ContactForm = React.createClass({
           <Radio checked={this.state['regularity'] === '1'} name="regularity" id="regularity--1" onChange={this.updateRadio} value="1">This is my first time here</Radio>
           <Radio checked={this.state['regularity'] === '2'}  name="regularity" id="regularity--2" onChange={this.updateRadio} value="2">This is my second time here</Radio>
           <Radio checked={this.state['regularity'] === '3'}  name="regularity" id="regularity--3" onChange={this.updateRadio} value="3">This is my third time here</Radio>
-          <Radio checked={this.state['regularity'] === 'home'}  name="regularity" id="regularity--home" onChange={this.updateRadio} value="home">This is my home</Radio>
+          <Radio checked={this.state['regularity'] === 'home'}  name="regularity" id="regularity--home" onChange={this.updateRadio} value="home">I call River Church home</Radio>
         </div>
         <div style={DIVIDER}></div>
-        <Floater input={'textarea'} rows="5" label="how can we pray for you?" id="prayer" onChange={this.updateState} />
-        <Floater input={'textarea'} rows="5" label="what is God doing in your life?" id="god-is-doing" onChange={this.updateState} />
-        <Floater input={'textarea'} rows="5" label="questions? comments?" id="comments" onChange={this.updateState} />
+        <Floater input={'textarea'} rows="5" label="How can we pray for you?" id="prayer" onChange={this.updateState} />
+        <Floater input={'textarea'} rows="5" label="What is God doing in your life?" id="god-is-doing" onChange={this.updateState} />
+        <Floater input={'textarea'} rows="5" label="Questions? Comments?" id="comments" onChange={this.updateState} />
         <button className={css.button.className} type="submit">send</button>
       </form>
     );

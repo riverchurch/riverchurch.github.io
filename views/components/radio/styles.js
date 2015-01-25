@@ -35,16 +35,17 @@ var radioInner = RCSS.cascade({
   height: '16px',
   width: '16px',
   borderRadius: '50%',
-  left: 0,
-  top: 0,
+  left: '-2px',
+  top: '-2px',
   transform: 'scale(0)',
-  transformOrigin: '30% 30%',
+  WebkitTransform: 'scale(0)',
 }, TRANSITION);
 
 var radioInnerActive = RCSS.cascade(radioInner, {
   backgroundColor: '#000',
   borderColor: '#000',
   transform: 'scale(0.5)',
+  WebkitTransform: 'scale(0.5)',
 });
 
 var text = RCSS.cascade(TRANSITION, {
