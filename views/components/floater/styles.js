@@ -60,17 +60,6 @@ var lastErrorMessage = RCSS.cascade(errorMessage, {
   borderBottom: '2px solid #ce2d1c'
 });
 
-var button = {
-  background: '#fafafa',
-  border: 0,
-  borderTop: '1px solid #e9e9e9',
-  borderBottom: '2px solid #444',
-  color: '#000',
-  marginTop: '1.333em',
-  fontSize: '1.333em',
-  padding: '0.5em 1.5em',
-};
-
 module.exports = {
   fieldset: RCSS.registerClass(fieldset),
   label: RCSS.registerClass(label),
@@ -79,7 +68,6 @@ module.exports = {
   errorMessage: RCSS.registerClass(errorMessage),
   lastErrorMessage: RCSS.registerClass(lastErrorMessage),
   textfield: RCSS.registerClass(textfield),
-  button: RCSS.registerClass(button),
 };
 
 

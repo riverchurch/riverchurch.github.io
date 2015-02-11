@@ -31,6 +31,7 @@ var ContactForm = React.createClass({
     event.preventDefault();
     var form = this.getDOMNode();
     var {action, method} = form;
+    ga('send', 'event', 'contact', 'form', 'submit', 1);
     window.fetch(action, {
       method: method,
       body: new FormData(form),
@@ -41,11 +42,13 @@ var ContactForm = React.createClass({
     .then(toJSON)
     .then(data => {
       if (data.statusCode && data.statusCode !== 200) {
+        ga('send', 'event', 'contact', 'form', 'error', 1);
         this.setState({
           errors: data.message.split('.')
         });
       }
       else {
+        ga('send', 'event', 'contact', 'form', 'success', 1);
         this.setState({
           completedMessage: data.message,
           errors: this.state.errors.slice(this.state.errors.length)
