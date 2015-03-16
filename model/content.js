@@ -32,7 +32,7 @@ module.exports = {
       image: '/public/images/bio-sarah.png',
     },
     { name: 'Grayson Berkowitz',
-      title: 'Worship Pastor',
+      title: 'Worship Pastor / Webmaster',
       twitter: 'berzerkowitz',
       bio: 'A North Carolina native, Grayson grew up writing and playing music. He and his wife Tori have two kids, Aliza and Ari. Grayson lives to inspire others to live a life of worship.',
       image: '/public/images/bio-gray.png',

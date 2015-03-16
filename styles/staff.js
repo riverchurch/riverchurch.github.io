@@ -54,7 +54,7 @@ var image = RCSS.cascade(CHILD_BASE, {
 
 var socialMedia = RCSS.cascade(CHILD_BASE, {
   position: 'absolute',
-  bottom: 0,
+  top: '-40px',
   left: 0,
   height: '2em',
   width: '2em',
