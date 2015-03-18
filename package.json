@@ -29,7 +29,7 @@
     "fetch": "git://github.com/github/fetch#9b1ddc9ef47011c2c9b0c9bc89e7ec09cf5ca962",
     "good": "^5.0.0",
     "good-console": "^3.0.2",
-    "hapi": "^8.1.0",
+    "hapi": "^8.4.0",
     "hapi-level": "^1.0.4",
     "hapi-mailer": "^2.0.0",
     "hapi-react-views": "^1.2.3",
