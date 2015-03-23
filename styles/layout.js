@@ -20,8 +20,16 @@ var contactTitle = {
   color: '#1dc7ba',
 };
 
+var contactPhone = {
+  fontSize: '0.875em',
+  float: 'right',
+  color: '#777',
+  marginTop: '-3.3333em',
+};
+
 module.exports = {
   staff: RCSS.registerClass(staff),
   contact: RCSS.registerClass(contact),
   contactTitle: RCSS.registerClass(contactTitle),
+  contactPhone: RCSS.registerClass(contactPhone),
 };
