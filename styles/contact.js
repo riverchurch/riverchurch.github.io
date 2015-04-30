@@ -75,6 +75,8 @@ var button = {
   marginTop: '1.333em',
   padding: '0.5em 1.5em',
   transition: 'all 0.3s ease-in',
+  width: '100%',
+  maxWidth: '304px',
   ':hover': {
     background: COLOR,
     color: '#fff',
@@ -83,6 +85,9 @@ var button = {
     background: COLOR,
     color: '#fff',
   },
+  '@media screen and (max-width: 720px)': {
+    maxWidth: 'auto',
+  }
 };
 
 var addChild = {

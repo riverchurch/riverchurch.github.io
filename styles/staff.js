@@ -5,7 +5,7 @@ var CHILD_BASE = {
   display: 'block',
   position: 'relative',
   zIndex: 5,
-  '@media screen and (max-width: 600px)': {
+  '@media screen and (max-width: 599px)': {
     fontSize: '0.75em',
   },
 };
@@ -19,16 +19,11 @@ var mod = {
   textShadow: '0 1px 5px rgba(0, 0, 0, 0.1666)',
   overflow: 'hidden',
   verticalAlign: 'top',
-  '@media screen and (max-width: 600px)': {
+  '@media screen and (max-width: 599px)': {
     minHeight: '300px',
     width: '50%',
   },
-  '@media screen and (min-width: 601px)': {
-    margin: '2.5%',
-    minHeight: '340px',
-    width: '45%',
-  },
-  '@media screen and (min-width: 1000px)': {
+  '@media screen and (min-width: 600px)': {
     margin: '0 1.25%',
     width: '22.5%',
   }
@@ -37,6 +32,7 @@ var mod = {
 var contentContainer = {
   background: 'rgba(65, 160, 148, 0.6)',
   padding: '1em 0 0.5em',
+  textDecoration: 'none',
   position: 'absolute',
   left: 0,
   right: 0,
@@ -46,9 +42,9 @@ var contentContainer = {
 
 var image = RCSS.cascade(CHILD_BASE, {
   position: 'absolute',
-  marginLeft: '-10%',
+  marginLeft: '-3%',
   top: 0,
-  width: '120%',
+  width: '106%',
   zIndex: 0
 });
 
@@ -77,9 +73,12 @@ var twitterIcon = {
 
 var name = RCSS.cascade(CHILD_BASE, {
   fontSize: '1.333em',
-  fontWeight: 700,
+  fontWeight: 400,
   height: '2em',
   lineHeight: 1,
+  '@media screen and (min-width: 500px)': {
+    fontSize: '1.333em',
+  },
   '@media screen and (min-width: 1000px)': {
     fontSize: '1.666em',
   },
@@ -87,11 +86,13 @@ var name = RCSS.cascade(CHILD_BASE, {
 
 var bio = RCSS.cascade(CHILD_BASE, {
   display: 'none',
-  fontSize: '0.91666em',
-  fontWeight: 'normal',
+  fontSize: '0.8125em',
+  fontWeight: '300',
 });
 
-var title = RCSS.cascade(CHILD_BASE, {});
+var title = RCSS.cascade(CHILD_BASE, {
+  fontSize: '0.8125em',
+});
 
 // var SELECTORS = [mod, image, anchor, name, bio, title];
 

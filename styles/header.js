@@ -90,6 +90,7 @@ var bigHitterItem = {
 var bigHitterIcon = {
   fontSize: '3.25em',
   float: 'left',
+  lineHeight: 0,
   margin: '0 0.25em 0.25em 0',
 };
 

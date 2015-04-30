@@ -21,7 +21,11 @@ var Layout = React.createClass({
         <body>
           {this.props.children}
           <footer className={footer.footer.className}>
-            <p>copyright &copy; {new Date().getFullYear()} river church charlotte</p>
+            <p>
+              copyright &copy; {new Date().getFullYear()} river church charlotte
+              |
+              (704) 900-3303
+            </p>
           </footer>
           <script dangerouslySetInnerHTML={{__html: 'var __rehydration = ' + JSON.stringify(this.props.rehydration) + ';'}}></script>
           <script src={`/public/js/${this.props.module}.js`}></script>

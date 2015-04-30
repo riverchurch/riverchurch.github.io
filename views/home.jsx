@@ -33,7 +33,7 @@ var Root = React.createClass({
           <ul className={header.bigHitterList.className}>
             <li className={header.bigHitterItem.className}>
               <a className={header.bigHitterButton.className} href="https://www.google.com/maps/preview?q=mallard+creek+rec+center&ie=utf-8&ei=e6flu-kxa8xmsaswwydqdq&ved=0cagq_auoaq">
-                <i className={header.bigHitterIcon.className + ' ion-map'}></i>
+                <i className={header.bigHitterIcon.className + ' ion-location'}></i>
                 <span className={header.bigHitterTitle.className}>sunday at 10 am</span>
                 <span className={header.bigHitterText.className}>mallard creek rec center</span>
               </a>
@@ -67,7 +67,6 @@ var Root = React.createClass({
 
         <section id="connect-with-us" className={layout.contact.className}>
           <h1 className={layout.contactTitle.className}>connect with us</h1>
-          <span className={layout.contactPhone.className}>Phone: (704) 900-3303</span>
           <ContactForm />
         </section>
         <script src='https://www.google.com/recaptcha/api.js' async></script>
