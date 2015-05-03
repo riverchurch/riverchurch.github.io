@@ -3,6 +3,7 @@
 var Joi = require('joi');
 var path = require('path');
 var service = require('./model/service');
+var events = require('./model/elvanto');
 var validateHuman = require('./lib/validateHuman');
 var CONTENT = require('./model/content');
 var extend = require('./lib/extend');
@@ -40,9 +41,16 @@ module.exports = function(server) {
     method: 'GET',
     path:'/',
     handler: function(request, reply) {
+      var _service = service.get();
+      var _events = events();
+
       // TODO: contextify each response: https://github.com/brianmcd/contextify
-      service.get().then(function(sunday) {
-        reply.view('home', extend({}, CONTENT, {sunday: sunday}))
+      Promise.all([_service, _events])
+      .then(function(results) {
+        var sunday = results[0];
+        var events = results[1];
+
+        reply.view('home', extend({}, CONTENT, {sunday: sunday, events: events}))
           .header('Content-Type', 'text/html;charset=UTF-8');
       });
     }

@@ -2,6 +2,7 @@ var React = require('react');
 var BaseLayout = require('./layouts/base.jsx');
 var Kids = require('./kids.jsx');
 var Staff = require('./staff.jsx');
+var Events = require('./events.jsx');
 var ContactForm = require('./contact.jsx');
 var SundayMorning = require('./sunday.jsx');
 var layout = require('../styles/layout');
@@ -23,7 +24,7 @@ var Root = React.createClass({
   },
 
   render() {
-    var {kids, staff, sunday} = this.props;
+    var {kids, staff, sunday, events} = this.props;
 
     return (
       <BaseLayout module="home" rehydration={this.props}>
@@ -45,14 +46,12 @@ var Root = React.createClass({
                 <span className={header.bigHitterText.className}>powered by Pushpay</span>
               </a>
             </li>
-            {/*
             <li className={header.bigHitterItem.className}>
-              <a className={header.bigHitterButton.className} href="https://calendar.google.com">
+              <a className={header.bigHitterButton.className} href="#events">
                 <i className={header.bigHitterIcon.className + ' ion-calendar'}></i>
                 <span className={header.bigHitterTitle.className}>upcoming events</span>
               </a>
             </li>
-            */}
           </ul>
           <a href="#sunday-morning" className={header.heroReadMore.className + ' ion-chevron-down'} aria-label="Scroll to Staff"></a>
           <img className={header.heroImage.className} src="/public/images/hero.jpg" />
@@ -63,6 +62,9 @@ var Root = React.createClass({
 
         <section id="staff" className={layout.staff.className}>
           {staff.map(s => <Staff key={s.twitter} data={s} />)}
+        </section>
+        <section id="events" className={layout.staff.className}>
+          <Events events={events} />
         </section>
 
         <section id="connect-with-us" className={layout.contact.className}>

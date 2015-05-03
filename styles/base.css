@@ -42,3 +42,13 @@ svg {
   font-style: italic;
   color: #888;
 }
+
+/* elvanto api styles */
+.__elvanto p {
+  font-size: 0.91666em;
+}
+
+.__elvanto a {
+  color: inherit;
+}
+

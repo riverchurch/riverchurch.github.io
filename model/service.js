@@ -35,7 +35,8 @@ function get() {
           var recent = result.rss.channel[0].item[0];
           var title = nth(recent.title[0].split(/\s+?-\s+?/), 1);
           var description = recent.description[0];
-          resolve({title: title, description: description});
+          cache[c] = {title: title, description: description};
+          resolve(cache[c]);
         });
       }, function(err) {
         resolve(DEFAULT);
