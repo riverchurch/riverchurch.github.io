@@ -23,6 +23,10 @@ var mod = {
     minHeight: '300px',
     width: '50%',
   },
+  '@media screen and (max-width: 349px)': {
+    minHeight: '225px',
+    width: '50%',
+  },
   '@media screen and (min-width: 600px)': {
     margin: '0 1.25%',
     width: '22.5%',
@@ -42,9 +46,9 @@ var contentContainer = {
 
 var image = RCSS.cascade(CHILD_BASE, {
   position: 'absolute',
-  marginLeft: '-3%',
+  marginLeft: '-4%',
   top: 0,
-  width: '106%',
+  width: '108%',
   zIndex: 0
 });
 

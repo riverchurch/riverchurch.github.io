@@ -10,6 +10,9 @@ var block = {
   padding: '0.75em 0',
   marginLeft: '4.5em',
   position: 'relative',
+  '@media screen and (max-width: 499px)': {
+    marginLeft: '3em',
+  },
 };
 
 var date = {
@@ -23,6 +26,9 @@ var date = {
   padding: '0.666em 0',
   textAlign: 'center',
   width: '3em',
+  '@media screen and (max-width: 499px)': {
+    left: '-3.6em',
+  },
 };
 
 var month = {
