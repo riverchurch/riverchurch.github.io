@@ -29,7 +29,7 @@ var Events = React.createClass({
   renderEvent(event) {
 
     var date = new Date(event.start_date.split(' ')[0]);
-    var month = MONTHS[date.getMonth() - 1];
+    var month = MONTHS[date.getMonth()];
     var day = date.getDate();
     var time;
     var description = /Dustan/.test(event.description) ?
