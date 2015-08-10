@@ -1,0 +1,54 @@
+
+.module {
+  box-sizing: border-box;
+  clear: both;
+  margin: 0px auto;
+  max-width: 800px;
+  padding: 3em 10%;
+}
+
+.successMessage {
+  background: #41A094;
+  color: #fff;
+  font-size: 1.3333em;
+  padding: 2em;
+  border-bottom: 2px solid #565656;
+  margin-bottom: 14em;
+}
+
+.errorMessage {
+  background: #ea5a4b;
+  border: 0;
+  color: #fff;
+  padding: 0.3333em 0.666em;
+}
+
+.lastErrorMessage {
+  composes: errorMessage;
+  border-bottom: 2px solid #ce2d1c;
+}
+
+.button {
+  background: transparent;
+  border: 2px solid #1dc7ba;
+  border-radius: 0.5em;
+  color: #1dc7ba;
+  font-size: 1.333em;
+  margin-top: 1.333em;
+  padding: 0.5em 1.5em;
+  transition: all 0.3s ease-in;
+  width: 100%;
+  max-width: 304px;
+}
+.button:hover,
+.button:focus {
+  background: #1dc7ba;
+  color: #fff;
+}
+
+@media screen and (max-width: 720px) {
+  .button {
+    max-width: auto;
+  }
+}
+

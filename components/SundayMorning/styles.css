@@ -1,0 +1,105 @@
+
+@media screen and (min-width: 601px) {
+  .content,
+  .image {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    width: 50%;
+  }
+
+  .image {
+    background: url(/public/images/sunday.jpg);
+    background-size: cover;
+    padding: 2em 0;
+  }
+
+  .content {
+    position: relative;
+    color: #000;
+  }
+}
+
+.header {
+  background: #33b2af;
+  font-size: 1em;
+  color: #fff;
+  margin: 0;
+  padding: 0.666em 1.5rem;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    border-bottom: 3px solid #259C99;
+  }
+}
+
+.quote {
+  font-family: serif;
+  font-size: 1.333em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media screen and (max-width: 600px) {
+  .quote {
+    background: #262626;
+    color: #f4f4f4;
+    margin: 0;
+    padding: 1.5em;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 601px) {
+  .quote {
+    background: #f4f4f4;
+    color: #363636;
+    font-size: 1.666em;
+    margin: 60% 0 1.5em 30%;
+    padding: 0.75em 0.75em;
+    text-align: right;
+  }
+}
+
+.section {
+  border-bottom: 1px solid #999;
+  margin: 0 1.5rem;
+  padding: 0.6666em 0;
+  max-width: 400px;
+}
+
+.section:last-child {
+  border-bottom: 0 none;
+}
+
+.podcastAnchor {
+  color: #002759;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 1em;
+  vertical-align: middle;
+}
+
+.p {
+  margin-top: 0;
+}
+
+.oneHopeAnchor {
+  color: #33b2af;
+  font-style: italic;
+}
+
+.sectionName {
+  color: #555;
+  display: block;
+  font-size: 0.916666em;
+  font-family: serif;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 0.333em;
+}
+.sectionName:after {
+  content: ':';
+}
+

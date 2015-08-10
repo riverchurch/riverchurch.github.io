@@ -1,0 +1,21 @@
+.block {
+  border-bottom: 1px solid #3b3b3b;
+  padding: 0.75em 0;
+}
+
+.name {
+  color: #111;
+  display: block;
+  font-size: 1.333em;
+  font-weight: bold;
+}
+
+.age {
+  color: #555;
+  display: block;
+  font-family: serif;
+  font-size: 0.916666em;
+  font-style: italic;
+  font-weight: bold;
+  margin-left: 0.1111em;
+}

@@ -1,0 +1,49 @@
+
+.INPUT_BASE = {
+  display: block;
+  vertical-align: top;
+}
+
+.fieldset {
+  padding: 0;
+  position: relative;
+}
+
+.label {
+  composes: INPUT_BASE;
+  font-size: 0.666em;
+  font-weight: 300;
+  position: absolute;
+  top: 2.23em;
+  left: 1rem;
+  opacity: 0;
+  top: 1.5em;
+  transition: 0.333s ease top, 0.333s ease opacity;
+}
+
+.label__hasContent {
+  composes: label;
+
+  opacity: 1;
+  top: 0.4rem;
+}
+
+.textfield {
+  composes: INPUT_BASE;
+  display: block;
+  vertical-align: top;
+
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid #777;
+  padding: 1.333em 1em 0.5em 1em;
+  width: 100%;
+  transition: all 0.3s ease-in;
+}
+
+.textfield:focus {
+  background: #fafafa;
+  outline: 0;
+  border-bottom-color: #333;
+}
+

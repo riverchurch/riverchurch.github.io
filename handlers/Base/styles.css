@@ -1,0 +1,9 @@
+@import '../../node_modules/normalize.css/normalize.css';
+@import './base.css';
+
+.footer {
+  color: #888;
+  font-size: 13px;
+  text-align: center;
+}
+

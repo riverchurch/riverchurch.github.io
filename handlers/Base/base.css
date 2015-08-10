@@ -1,0 +1,54 @@
+* {
+  -moz-box-sizing: border-box;
+       box-sizing: border-box;
+}
+
+body {
+  background: #f4f4f4;
+  font-family: 'Gotham SSm A', 'Gotham SSm B', serif;
+  font-style: normal;
+  font-weight: 400;
+  scroll-behavior: smooth;
+}
+
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+svg {
+  margin-top: 4em;
+  max-width: 100%;
+}
+
+.g-recaptcha {
+  margin-top: 2em;
+  min-height: 78px;
+  max-width: 100%;
+}
+
+::-webkit-input-placeholder {
+  font-style: italic;
+  color: #888;
+}
+
+::-moz-placeholder {
+  font-style: italic;
+  color: #888;
+}
+
+:-ms-input-placeholder {
+  font-style: italic;
+  color: #888;
+}
+
+/* elvanto api styles */
+.__elvanto p {
+  font-size: 0.91666em;
+}
+
+.__elvanto a {
+  color: inherit;
+}
+
