@@ -1,6 +1,13 @@
 'use strict';
 
-var Mailer = require('hapi-mailer');
+try {
+  Object.assign(process.env, require('./../.config'));
+}
+catch (e) {}
+
+import Mailer from 'hapi-mailer';
+import ReactViews from 'hapi-react-views';
+import {join} from 'path';
 
 var options = {
   transport: {
@@ -12,12 +19,12 @@ var options = {
   },
   views: {
     engines: {
-      jsx: require('hapi-react-views'),
+      jsx: ReactViews,
     },
     compileOptions: {
-      'node-jsx': {harmony: true},
+      useNodeJsx: false,
     },
-    path: 'views/mailer',
+    path: join(process.cwd(), 'mailer'),
   }
 };
 
@@ -26,4 +33,5 @@ var plugin = {
   options: options,
 };
 
-module.exports = plugin;
+export default plugin;
+

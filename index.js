@@ -1,48 +1,42 @@
-'use strict';
+var webpack = require('webpack');
+var config = require('./webpack.node');
+var exec = require('child_process').exec;
+var debug = require('debug')('index');
 
-var Hapi = require('hapi');
-var path = require('path');
-var readdir = require('fs').readdirSync;
+config.watch = true;
 
-try {
-  require('./lib/extend')(process.env, require('./.config'));
-}
-catch (e) {}
-var PORT = process.env.PORT || 8000;
+var serverProcess;
 
-var server = new Hapi.Server();
-server.connection({port: PORT});
+webpack(config, function(err, stats) {
+  if (err) {
+    return debug(err);
+  }
 
-// load plugins
+  if (stats.hasErrors && stats.hasErrors.length) {
+    var json = stats.toJson();
+    debug('stats.hasErrors', json.errors);
+  }
 
-if (!module.parent) {
-  server.register(
-    readdir('plugins').map(function(p) { return require('./plugins/' + p); }),
-    startServer
-  );
-}
+  if (stats.hasWarning) {
+    debug('Warnings! Warnings!');
+  }
 
-// set view engine
+  if (serverProcess) {
+    debug('restarting server');
+    serverProcess.kill();
+  }
+  else {
+    debug('starting server');
+  }
 
-server.views({
-  engines: {
-    jsx: require('hapi-react-views')
-  },
-  compileOptions: {
-    renderMethod: 'renderToString',
-    'node-jsx': {harmony: true},
-  },
-  path: 'views'
+  serverProcess = exec('node ./dist/main');
+  serverProcess.stdout.on('data', function(chunk) {
+    debug(chunk.toString());
+  });
+
+  serverProcess.stderr.on('data', function(chunk) {
+    debug(chunk.toString());
+  });
+
 });
 
-// load routes
-
-require('./routes')(server);
-
-function startServer() {
-  server.start(function() {
-    server.log('info', 'Server running at: ' + server.info.uri);
-  });
-}
-
-module.exports = server;
