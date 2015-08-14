@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('requiring ContactEmail.jsx');
-
 var _get = require('babel-runtime/helpers/get')['default'];
 
 var _inherits = require('babel-runtime/helpers/inherits')['default'];
@@ -56,7 +54,6 @@ var ContactEmail = (function (_Component) {
   _createClass(ContactEmail, [{
     key: 'render',
     value: function render() {
-      console.log('rendering ContactEmail', this.props);
       var _props = this.props;
       var name = _props.name;
       var email = _props.email;

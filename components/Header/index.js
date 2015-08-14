@@ -16,10 +16,10 @@ class Header extends Component {
 
         <ul className={styles.list}>
           <li className={styles.listItem}>
-            <a className={styles.itemButton} href="https://www.google.com/maps/preview?q=mallard+creek+rec+center&ie=utf-8&ei=e6flu-kxa8xmsaswwydqdq&ved=0cagq_auoaq">
+            <a className={styles.itemButton} href={`https://www.google.com/maps/preview?q=${encodeURIComponent(process.env.CHURCH_LOCATION)}`}>
               <i className={`${styles.itemIcon} ion-location`}></i>
               <div className={styles.itemButtonTitle}>sunday at 10 am</div>
-              <div className={styles.itemButtonText}>mallard creek rec center</div>
+              <div className={styles.itemButtonText}>{process.env.CHURCH_LOCATION}</div>
             </a>
           </li>
           <li className={styles.listItem}>

@@ -26,7 +26,6 @@ var value = {};
 
 class ContactEmail extends Component {
   render(): ReactElement {
-    console.log('rendering ContactEmail', this.props);
     var {name, email, phone, prayer} = this.props;
     var comments = this.props['whatcha-need'];
     return (

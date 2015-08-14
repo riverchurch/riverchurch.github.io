@@ -19,6 +19,7 @@ webpack(
     hotloader: false,
     env: 'production',
     target: 'web',
+    API_URL: '',
   })
 )
 .run(function(err, stats) {
@@ -33,6 +34,7 @@ webpack(
     env: 'production',
     target: 'node',
     serverPort: process.env.PORT,
+    API_URL: 'http://www.rivercharlotte.com',
   })
 )
 .run(function(err) {
