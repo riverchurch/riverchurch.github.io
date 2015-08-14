@@ -92,7 +92,7 @@ module.exports = function(options) {
               options.env === 'development' ?
                 'style!css?modules' :
                 // 'css!style!rework-webpack',
-                ExtractTextPlugin.extract('css', 'style', 'rework-webpack')
+                ExtractTextPlugin.extract('style', 'css?modules&minimize')
         },
         {test: /\.json$/, loader: 'json'},
         {test: /\.jsx?$/,
