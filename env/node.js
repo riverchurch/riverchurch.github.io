@@ -1,11 +1,6 @@
 /** @flow */
 require('isomorphic-fetch');
 
-try {
-  Object.assign(process.env, require('./.config'));
-}
-catch (e) {}
-
 var projectName = require('../package.json').name;
 
 var debug = require('debug')('app startup');
@@ -121,7 +116,9 @@ server.route({
 });
 
 debug('app server starting on ' + process.env.PORT);
-server.start();
+server.start(function() {
+  debug('app server listening on ' + process.env.PORT);
+});
 
 export default server;
 

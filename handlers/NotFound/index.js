@@ -6,10 +6,7 @@ import React, {Component} from 'react';
 class NotFound extends Component {
   render(): ReactElement {
     return (
-      <div>
-        Welcome NotFound
-        {this.props.children}
-      </div>
+      <div>Could not find the page you’re looking for</div>
     );
   }
 }
