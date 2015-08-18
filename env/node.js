@@ -120,7 +120,7 @@ server.route({
   },
 });
 
-debug(`app server starting on ${process.env.PORT}`);
+debug('app server starting on ' + process.env.PORT);
 server.start();
 
 export default server;

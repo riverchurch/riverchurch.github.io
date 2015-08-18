@@ -11,7 +11,7 @@
     "test": "npm run lab && npm run jest",
     "test-client": "jest",
     "test-server": "lab -T node_modules/lab-babel -t 100 -S",
-    "build": "DEBUG=*,-babel node ./scripts/build && node dist/main.js"
+    "build": "DEBUG=*,-babel node ./scripts/build && DEBUG=*,-babel node dist/main.js"
   },
   "dependencies": {
     "axios": "^0.5.4",
