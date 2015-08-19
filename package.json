@@ -2,7 +2,10 @@
   "name": "RiverChurch",
   "description": "An amazing, rich, isomorphic website created with skookum-react",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "engines": {
+    "iojs": "2.5.x"
+  },
   "scripts": {
     "lint": "npm run eslint && npm run suit",
     "eslint": "eslint .",
