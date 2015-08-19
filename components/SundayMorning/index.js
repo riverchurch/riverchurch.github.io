@@ -8,7 +8,7 @@ import React, {Component, PropTypes} from 'react';
 import {resolve} from 'react-resolver';
 
 @resolve('service', props => (
-  fetch(`http://localhost:${process.env.PORT}/api/sunday-morning`).then(n => n.json())
+  fetch(`${process.env.API_URL}/api/sunday-morning`).then(n => n.json())
 ))
 class SundayMorning extends Component {
   static displayName = 'SundayMorning';

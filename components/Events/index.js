@@ -65,7 +65,7 @@ function renderEvent(event: mixed): ReactElement {
 
 
 @resolve('events', props => (
-  fetch(`http://localhost:${process.env.PORT}/api/calendar`).then(n => n.json())
+  fetch(`${process.env.API_URL}/api/calendar`).then(n => n.json())
 ))
 class Events extends Component {
   static displayName = 'Events';
