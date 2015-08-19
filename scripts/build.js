@@ -19,7 +19,7 @@ webpack(
     hotloader: false,
     env: 'production',
     target: 'web',
-    API_URL: '',
+    API_URL: undefined,
   })
 )
 .run(function(err, stats) {
