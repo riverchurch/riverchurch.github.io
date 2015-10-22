@@ -1,16 +1,16 @@
 /** @flow */
 require('isomorphic-fetch');
 
-var projectName = require('../package.json').name;
+const projectName = require('../package.json').name;
 
-var debug = require('debug')('app startup');
+const debug = require('debug')('app startup');
 
 import path from 'path';
 import Hapi from 'hapi';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
-import Router from 'react-router';
-import Location from 'react-router/lib/Location';
+import {match, RoutingContext} from 'react-router'
+import {createLocation} from 'history'
 import {Resolver} from 'react-resolver';
 import routes from '../routes';
 import {resources} from './webpack';
@@ -39,7 +39,7 @@ server.connection({
 
 if (!module.parent) {
   server.register({register: api}, {
-    routes: {prefix: '/api'}
+    routes: {prefix: '/api'},
   }, function(err) {
     if (err) debug('OH NO THE API BLEW UP');
   });
@@ -59,8 +59,8 @@ server.route({
   handler: {
     file: function (request) {
       return path.join('public', 'favicon.ico');
-    }
-  }
+    },
+  },
 });
 
 server.route({
@@ -76,7 +76,7 @@ server.route({
   path: '/feed/podcast',
   handler: function(request, reply) {
     return reply.redirect('http://feeds.soundcloud.com/users/soundcloud:users:118020810/sounds.rss').code(301);
-  }
+  },
 });
 
 // TODO: handle 500s correctly
@@ -86,7 +86,7 @@ server.route({
   handler: function(request, reply) {
     // return reply(tmpl({html: '', data: undefined}));
 
-    var location = new Location(request.path, request.query);
+    var location = createLocation(request.path + '?' + request.query);
     function onError(err) {
       debug('Router Error', err);
       console.log(err.stack);
@@ -98,19 +98,26 @@ server.route({
       reply.redirect(redirect.to);
     }
 
-    Router.run(routes, location, (error, initialState, transition) => {
+    match({routes, location}, (error, redirectLocation, renderProps) => {
       if (error) {
         console.error('error', error);
         console.log(error);
-        res.status(500).send(error);
+        reply.status(500).send(error);
       }
-
-      Resolver
-        .resolve(() => <Router routes={routes} {...initialState} onAbort={onAbort} onError={onError} />)
-         .then(({ Resolved, data }) => {
+      else if (redirectLocation) {
+        reply.redirect(302, redirectLocation.pathname + redirectLocation.search);
+      }
+      else if (renderProps) {
+        Resolver
+          .resolve(() => <RoutingContext {...renderProps} />)
+          .then(({ Resolved, data }) => {
             reply(tmpl({html: renderToString(<Resolved />), data}));
-         })
+          })
          .catch(onError);
+      }
+      else {
+        reply.send(404, 'Not found');
+      }
     });
   },
 });
@@ -121,5 +128,4 @@ server.start(function() {
 });
 
 export default server;
-
 

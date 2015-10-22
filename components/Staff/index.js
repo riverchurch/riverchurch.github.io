@@ -7,7 +7,7 @@ var styles = _styles.locals ? _styles.locals : _styles;
 import React, {Component, PropTypes} from 'react';
 
 class Staff extends Component {
-  render(): ReactElement {
+  render():ReactElement {
     var {data} = this.props;
 
     return (

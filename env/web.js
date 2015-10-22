@@ -3,11 +3,11 @@ require('isomorphic-fetch');
 import React from 'react';
 import Router from 'react-router';
 import {Resolver} from 'react-resolver';
-import BrowserHistory from 'react-router/lib/BrowserHistory';
+import {createHistory} from 'history';
 
 import routes from '../routes';
 
-var history = new BrowserHistory();
+var history = createHistory();
 
 Resolver.render(
   () => <Router history={history} children={routes} />,
