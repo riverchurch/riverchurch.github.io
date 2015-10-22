@@ -5,12 +5,11 @@ const projectName = require('../package.json').name;
 
 const debug = require('debug')('app startup');
 
-import path from 'path';
 import Hapi from 'hapi';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
 import {match, RoutingContext} from 'react-router'
-import {createLocation} from 'history'
+import {createLocation} from 'history';
 import {Resolver} from 'react-resolver';
 import routes from '../routes';
 import {resources} from './webpack';
@@ -33,8 +32,8 @@ var tmpl = o => read('./index.html', 'utf8')
 var server = new Hapi.Server();
 
 server.connection({
-  host: 'localhost',
-  port: process.env.PORT,
+  host: '0.0.0.0',
+  port: +process.env.PORT,
 });
 
 if (!module.parent) {
@@ -58,7 +57,7 @@ server.route({
   path: '/favicon.ico',
   handler: {
     file: function (request) {
-      return path.join('public', 'favicon.ico');
+      return join('public', 'favicon.ico');
     },
   },
 });
