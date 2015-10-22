@@ -72,7 +72,7 @@ class Events extends Component {
 
   render(): ReactElement {
     return (
-      <div className={styles.block}>
+      <div className={styles.block} id="events">
         <SectionHeader>upcoming events</SectionHeader>
         {this.props.events.map(renderEvent)}
       </div>
