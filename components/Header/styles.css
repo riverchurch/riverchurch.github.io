@@ -116,7 +116,9 @@
   font-size: 3.25em;
   float: left;
   line-height: 0;
-  margin: 0 0.25em 0.25em 0;
+  margin: 0 0.25em 0.5em 0;
+  text-align: center;
+  width: 1em;
 }
 
 .itemButtonText {
