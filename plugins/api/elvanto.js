@@ -36,8 +36,8 @@ const currentWeek = function() {
 var cache = {};
 
 const formatResponse = function(event) {
-  const startDate = moment(event.start_date).subtract(4, 'hour');
-  const endDate = event.end_date && moment(event.end_date).subtract(4, 'hour');
+  const startDate = moment(event.start_date).subtract(5, 'hour');
+  const endDate = event.end_date && moment(event.end_date).subtract(5, 'hour');
 
   return {
     id: event.id,
