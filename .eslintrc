@@ -25,6 +25,9 @@
   },
 
   "parser": "babel-eslint",
+  "globals": [
+    "ReactElement"
+  ],
 
   "plugins": [
     "react"
