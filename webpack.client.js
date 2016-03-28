@@ -4,6 +4,7 @@ module.exports = require('./scripts/webpack.base')({
   hotServerPort: 4001,
   env: 'development',
   target: 'web',
+  noInfo: true,
 });
 
 

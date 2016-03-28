@@ -1,12 +1,11 @@
-import api from './api';
-import contact from './contact';
-import mailer from './mailer';
-import staticAssets from './staticAssets';
+import * as api from './api.js';
+import * as contact from './contact';
+import * as mailer from './mailer';
+import * as staticAssets from './staticAssets';
 
-export default {
-  api,
-  contact,
-  mailer,
-  staticAssets,
-};
-
+export {
+  api as api,
+  contact as contact,
+  mailer as mailer,
+  staticAssets as staticAssets,
+}

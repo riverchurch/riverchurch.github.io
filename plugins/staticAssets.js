@@ -2,15 +2,13 @@
 
 import path from 'path';
 
-function register(server: mixed, options: mixed, next: Function): void {
+export function register(server: mixed, options: mixed, next: Function): void {
   server.route({
     method: 'GET',
     path: `/cdn/{filename}`, // param* for other syntax
-    handler: {
-      file(request: mixed): string {
-        return path.join('dist', request.params.filename);
-      }
-    }
+    handler(request, reply) {
+      return reply.file(path.join('dist', request.params.filename));
+    },
   });
 
   // static file server
@@ -18,13 +16,9 @@ function register(server: mixed, options: mixed, next: Function): void {
     server.route({
       method: 'GET',
       path: `/public/${a}/{filename}`, // param* for other syntax
-      handler: {
-        file(request: mixed): string {
-          return path.join('public', a, request.params.filename);
-        }
-        // why is this syntax not working?
-        // directory: {path: __dirname + '/public'}
-      }
+      handler(request, reply) {
+        return reply.file(path.join('public', a, request.params.filename));
+      },
     });
   });
 
@@ -35,4 +29,3 @@ register.attributes = {
   name: 'staticAssets',
 };
 
-export default {register};

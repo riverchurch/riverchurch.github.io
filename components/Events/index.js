@@ -71,6 +71,10 @@ class Events extends Component {
   static displayName = 'Events';
 
   render(): ReactElement {
+    if (!Array.isArray(this.props.events) || this.props.events.length === 0) {
+      return null;
+    }
+
     return (
       <div className={styles.block} id="events">
         <SectionHeader>upcoming events</SectionHeader>

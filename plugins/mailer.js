@@ -9,7 +9,8 @@ import Mailer from 'hapi-mailer';
 import ReactViews from 'hapi-react-views';
 import {join} from 'path';
 
-var options = {
+export const register = Mailer;
+export const options = {
   transport: {
    service: 'Mandrill',
    auth: {
@@ -27,11 +28,4 @@ var options = {
     path: join(process.cwd(), 'mailer'),
   }
 };
-
-var plugin = {
-  register: Mailer,
-  options: options,
-};
-
-export default plugin;
 

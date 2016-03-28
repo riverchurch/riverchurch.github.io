@@ -8,7 +8,8 @@ import React, {Component, PropTypes} from 'react';
 import {resolve} from 'react-resolver';
 
 @resolve('service', props => (
-  fetch(`${process.env.API_URL}/api/sunday-morning`).then(n => n.json())
+  fetch(`${process.env.API_URL}/api/sunday-morning`)
+    .then(n => n.json())
 ))
 class SundayMorning extends Component {
   static displayName = 'SundayMorning';
@@ -18,13 +19,6 @@ class SundayMorning extends Component {
       title: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
     }),
-  };
-
-  static defaultProps = {
-    service: {
-      title: 'TODO',
-      description: 'TODO',
-    },
   };
 
   render(): ReactElement {

@@ -75,7 +75,7 @@ export default function() {
       'Authorization': 'Basic ' + (
         btoa(
           (process.env.ELVANTO_API_KEY ||
-          require('./../../../.config').ELVANTO_API_KEY) + ':'
+          require('./../../.config').ELVANTO_API_KEY) + ':'
         )
       )
     },

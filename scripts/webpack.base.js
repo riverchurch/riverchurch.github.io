@@ -22,6 +22,7 @@ var HOT_SERVER = function(port) {
   if (typeof port === 'undefined') {
     return [];
   }
+  return [];
 
   return [
     'webpack-dev-server/client?http://0.0.0.0:' + port,
@@ -98,11 +99,12 @@ module.exports = function(options) {
         {test: /\.jsx?$/,
           exclude: [
             // exclude everything that isn’t a react- component
-            /node_modules(?!\/react-)/,
-            /node_modules\/isomorphic-fetch/,
+            /node_modules/,
+            // /node_modules(?!\/react-)/,
+            // /node_modules\/isomorphic-fetch/,
           ],
           loaders: concat(
-            options.hotloader && 'react-hot',
+            // options.hotloader && 'react-hot',
              'babel'
           ),
         },
