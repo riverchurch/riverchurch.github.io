@@ -4,7 +4,8 @@
   "private": true,
   "version": "0.2.0",
   "engines": {
-    "node": "4.0.0"
+    "node": "5.x.x",
+    "npm": "3.x.x"
   },
   "scripts": {
     "lint": "npm run eslint && npm run suit",
