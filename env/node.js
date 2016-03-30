@@ -8,8 +8,9 @@ const debug = require('debug')('app startup');
 import Hapi from 'hapi';
 import React from 'react';
 import Inert from 'inert';
+import Vision from 'vision';
 import {renderToString} from 'react-dom/server';
-import {match, RoutingContext} from 'react-router'
+import {match, RouterContext} from 'react-router'
 import {createLocation} from 'history';
 import {Resolver} from 'react-resolver';
 import routes from '../routes';
@@ -39,6 +40,7 @@ server.connection({
 
 if (!module.parent) {
   server.register(Inert, () => {});
+  server.register(Vision, () => {});
 
   server.register({register: api}, {
     routes: {prefix: '/api'},
@@ -111,7 +113,7 @@ server.route({
       }
       else if (renderProps) {
         Resolver
-          .resolve(() => <RoutingContext {...renderProps} />)
+          .resolve(() => <RouterContext {...renderProps} />)
           .then(({ Resolved, data }) => {
             reply(tmpl({html: renderToString(<Resolved />), data}));
           })

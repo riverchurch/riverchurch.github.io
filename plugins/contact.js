@@ -27,12 +27,12 @@ export const handler = (request, reply) => {
       context: payload,
     };
 
-    var Mailer = request.server.plugins.mailer;
+    var Mailer = request.server.plugins.mailer || request.server.plugins['hapi-mailer'];
     if (Mailer) {
       if (request.server.log) {
         request.server.log('info', 'Sending mail', data);
       }
-      Mailer.sendMail(data, function(err, info) {
+      Mailer.send(data, function(err, info) {
         if (err) request.server.log('error', err);
         else request.server.log('info', 'Mail sent.', info);
       });
