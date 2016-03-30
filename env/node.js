@@ -7,8 +7,10 @@ const debug = require('debug')('app startup');
 
 import Hapi from 'hapi';
 import React from 'react';
+import Inert from 'inert';
+import Vision from 'vision';
 import {renderToString} from 'react-dom/server';
-import {match, RoutingContext} from 'react-router'
+import {match, RouterContext} from 'react-router'
 import {createLocation} from 'history';
 import {Resolver} from 'react-resolver';
 import routes from '../routes';
@@ -37,6 +39,9 @@ server.connection({
 });
 
 if (!module.parent) {
+  server.register(Inert, () => {});
+  server.register(Vision, () => {});
+
   server.register({register: api}, {
     routes: {prefix: '/api'},
   }, function(err) {
@@ -47,18 +52,18 @@ if (!module.parent) {
     if (err) debug('OH NO THE STATIC FILE SERVER BLEW UP');
   });
 
+  /*
   server.register(mailer, {}, function(err) {
     if (err) debug('OH NO THE MAILMAN HAS GONEO DOWN!');
   });
+  */
 }
 
 server.route({
   method: 'GET',
   path: '/favicon.ico',
-  handler: {
-    file: function (request) {
-      return join('public', 'favicon.ico');
-    },
+  handler(request, reply) {
+    return reply.file(join('public', 'favicon.ico'));
   },
 });
 
@@ -108,7 +113,7 @@ server.route({
       }
       else if (renderProps) {
         Resolver
-          .resolve(() => <RoutingContext {...renderProps} />)
+          .resolve(() => <RouterContext {...renderProps} />)
           .then(({ Resolved, data }) => {
             reply(tmpl({html: renderToString(<Resolved />), data}));
           })

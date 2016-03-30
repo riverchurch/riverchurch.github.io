@@ -1,16 +1,14 @@
 require('isomorphic-fetch');
 
 import React from 'react';
-import Router from 'react-router';
+import {Router} from 'react-router';
 import {Resolver} from 'react-resolver';
-import {createHistory} from 'history';
+import {browserHistory} from 'react-router';
 
 import routes from '../routes';
 
-var history = createHistory();
-
 Resolver.render(
-  () => <Router history={history} children={routes} />,
+  () => <Router history={browserHistory} children={routes} />,
   document.getElementById('app')
 );
 

@@ -5,17 +5,19 @@ try {
 }
 catch (e) {}
 
-import Mailer from 'hapi-mailer';
+import Mailer from '@nesive/hapi-mailer';
 import ReactViews from 'hapi-react-views';
 import {join} from 'path';
 
-var options = {
+export const register = Mailer.register;
+
+export const options = {
   transport: {
-   service: 'Mandrill',
-   auth: {
-     user: process.env.MAILER_USERNAME,
-     pass: process.env.MAILER_PASSWORD,
-   },
+    service: 'SendGrid',
+    auth: {
+      user: process.env.SENDGRID_USERNAME,
+      pass: process.env.SENDGRID_PASSWORD,
+    },
   },
   views: {
     engines: {
@@ -27,11 +29,4 @@ var options = {
     path: join(process.cwd(), 'mailer'),
   }
 };
-
-var plugin = {
-  register: Mailer,
-  options: options,
-};
-
-export default plugin;
 
