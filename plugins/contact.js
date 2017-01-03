@@ -32,6 +32,7 @@ export const handler = (request, reply) => {
       if (request.server.log) {
         request.server.log('info', 'Sending mail', data);
       }
+
       Mailer.send(data, function(err, info) {
         if (err) request.server.log('error', err);
         else request.server.log('info', 'Mail sent.', info);

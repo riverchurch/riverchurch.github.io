@@ -52,11 +52,9 @@ if (!module.parent) {
     if (err) debug('OH NO THE STATIC FILE SERVER BLEW UP');
   });
 
-  /*
   server.register(mailer, {}, function(err) {
     if (err) debug('OH NO THE MAILMAN HAS GONEO DOWN!');
   });
-  */
 }
 
 server.route({
