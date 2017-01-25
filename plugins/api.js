@@ -1,6 +1,6 @@
 /** @flow */
 
-import {service, elvanto} from './api/index.js';
+import {service, elvanto, elvantoPeople} from './api/index.js';
 import _debug from 'debug';
 const debug = _debug('api');
 
@@ -28,6 +28,17 @@ export function register(server: mixed, options: mixed, next: Function): void {
       elvanto().then(reply);
     },
   });
+
+  /*
+  server.route({
+    method: 'GET',
+    path: '/people',
+    handler(request: mixed, reply: mixed): void {
+      // TODO: ensure this is private
+      elvantoPeople().then(reply);
+    },
+  });
+  */
 
   next();
 };

@@ -88,7 +88,7 @@ server.route({
   handler: function(request, reply) {
     // return reply(tmpl({html: '', data: undefined}));
 
-    var location = createLocation(request.path + '?' + request.query);
+    var location = createLocation(request.path/* + '?' + request.query*/);
     function onError(err) {
       debug('Router Error', err);
       console.log(err.stack);

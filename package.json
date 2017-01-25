@@ -54,6 +54,7 @@
     "object-assign": "^4.0.1",
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-google-maps": "^6.0.0",
     "react-resolver": "3.0.0",
     "react-router": "2.0.1",
     "rework": "^1.0.1",
