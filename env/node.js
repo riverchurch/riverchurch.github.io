@@ -16,6 +16,7 @@ import {Resolver} from 'react-resolver';
 import routes from '../routes';
 import {resources} from './webpack';
 
+import qs from 'querystring';
 import {readFileSync as read} from 'fs';
 import {join} from 'path';
 
@@ -88,7 +89,7 @@ server.route({
   handler: function(request, reply) {
     // return reply(tmpl({html: '', data: undefined}));
 
-    var location = createLocation(request.path + '?' + request.query);
+    var location = createLocation(request.path + '?' + qs.stringify(request.query));
     function onError(err) {
       debug('Router Error', err);
       console.log(err.stack);

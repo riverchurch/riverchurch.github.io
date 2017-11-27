@@ -68,7 +68,7 @@ export default function() {
     url: 'https://api.elvanto.com/v1/calendar/events/getAll.json',
     data: {
       start: date(),
-      end: date(Date.now() + DAY * 45),
+      end: date(Date.now() + DAY * 60),
       fields: ['locations', 'assets'],
     },
     headers: {
@@ -80,11 +80,12 @@ export default function() {
       )
     },
   }).then(
-    resp => (
+    resp => {
       cache[c] = resp.data.events.event
         .filter(n => n.name !== DEFAULT_CALENDAR)
-        .map(formatResponse)
-    ),
+        .map(formatResponse),
+      return cache[c];
+    },
     n => (console.log('error', n), n)
   );
 };
